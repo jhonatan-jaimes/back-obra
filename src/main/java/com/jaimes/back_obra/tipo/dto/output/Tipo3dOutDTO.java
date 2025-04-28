@@ -1,6 +1,6 @@
 package com.jaimes.back_obra.tipo.dto.output;
 
-public class TipoOutDTO {
+public class Tipo3dOutDTO {
 
     private Long id;
     private String nameTipo;
@@ -11,10 +11,10 @@ public class TipoOutDTO {
     private Double areaUnidad;
     private Double areaTotal;
 
-    public TipoOutDTO() {
+    public Tipo3dOutDTO() {
     }
 
-    public TipoOutDTO(Long id, String nameTipo, Integer cantidad, Double largo, Double ancho, Double alto, Double areaUnidad, Double areaTotal) {
+    public Tipo3dOutDTO(Long id, String nameTipo, Integer cantidad, Double largo, Double ancho, Double alto, Double areaUnidad, Double areaTotal) {
         this.id = id;
         this.nameTipo = nameTipo;
         this.cantidad = cantidad;

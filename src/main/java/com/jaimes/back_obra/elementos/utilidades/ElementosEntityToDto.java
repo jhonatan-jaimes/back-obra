@@ -2,7 +2,7 @@ package com.jaimes.back_obra.elementos.utilidades;
 
 import com.jaimes.back_obra.elementos.dto.output.ElementoOutDTO;
 import com.jaimes.back_obra.elementos.entity.Elementos;
-import com.jaimes.back_obra.tipo.dto.output.TipoOutDTO;
+import com.jaimes.back_obra.tipo.dto.output.Tipo3dOutDTO;
 import com.jaimes.back_obra.tipo.entity.Tipo;
 
 import java.util.ArrayList;
@@ -14,9 +14,9 @@ public class ElementosEntityToDto {
         ElementoOutDTO elementoOutDTO = new ElementoOutDTO();
         elementoOutDTO.setId(elementos.getId());
         elementoOutDTO.setNameElemento(elementos.getNameElemento());
-        List<TipoOutDTO> listaTipoOutDTOS = new ArrayList<>();
+        List<Tipo3dOutDTO> listaTipo3dOutDTOS = new ArrayList<>();
         for(Tipo tipo : elementos.getTipos()){
-            TipoOutDTO dto = new TipoOutDTO();
+            Tipo3dOutDTO dto = new Tipo3dOutDTO();
             dto.setId(tipo.getId());
             dto.setNameTipo(tipo.getNameTipo());
             dto.setCantidad(tipo.getCantidad());
@@ -25,9 +25,9 @@ public class ElementosEntityToDto {
             dto.setAlto(tipo.getMedidas3D().getAlto());
             dto.setAreaUnidad(tipo.getAreas().getAreaUnidad());
             dto.setAreaTotal(tipo.getAreas().getAreaTotal());
-            listaTipoOutDTOS.add(dto);
+            listaTipo3dOutDTOS.add(dto);
         }
-        elementoOutDTO.setTipo(listaTipoOutDTOS);
+        elementoOutDTO.setTipo(listaTipo3dOutDTOS);
         return elementoOutDTO;
     }
 

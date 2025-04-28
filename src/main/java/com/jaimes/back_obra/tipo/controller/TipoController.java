@@ -4,10 +4,7 @@ import com.jaimes.back_obra.tipo.dto.input.TipoInDTO;
 import com.jaimes.back_obra.tipo.service.TipoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/tipo")
@@ -23,5 +20,10 @@ public class TipoController {
     @PostMapping("/guardar")
     public ResponseEntity<?> saveTipo(@RequestBody TipoInDTO tipoInDTO){
         return ResponseEntity.ok(tipoService.saveTipo(tipoInDTO));
+    }
+
+    @GetMapping("/{id}/tipo3d")
+    public ResponseEntity<?> findTipo3dById(@PathVariable Long id){
+        return ResponseEntity.ok(tipoService.findTipoById(id));
     }
 }
