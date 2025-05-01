@@ -53,4 +53,9 @@ public class TipoController {
         return ResponseEntity.ok(tipoService.updateTipo2d(tipo2dInDTO));
     }
 
+    @GetMapping("/buscar-tipos")
+    public ResponseEntity<?> allTipos (){
+        return ResponseEntity.ok(tipoService.findAllTipo());
+    }
+
 }

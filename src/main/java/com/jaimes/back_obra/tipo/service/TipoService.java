@@ -4,12 +4,16 @@ import com.jaimes.back_obra.tipo.dto.input.Tipo2dInDTO;
 import com.jaimes.back_obra.tipo.dto.input.Tipo3dInDTO;
 import com.jaimes.back_obra.tipo.dto.output.Tipo2dOutDTO;
 import com.jaimes.back_obra.tipo.dto.output.Tipo3dOutDTO;
+import com.jaimes.back_obra.tipo.dto.output.TipoOutAllDTO;
 import com.jaimes.back_obra.tipo.entity.Tipo;
+
+import java.util.List;
 
 public interface TipoService {
 
     //Borra por id tanto tipos 2d como 3d
     String deleteTipo(Long id);
+    List<TipoOutAllDTO> findAllTipo();
     //Buscar, guargar, actualizar tipos3d
     Tipo3dOutDTO findTipo3dById(Long id);
     Tipo updateTipo3d(Tipo3dInDTO tipo3dInDTO);

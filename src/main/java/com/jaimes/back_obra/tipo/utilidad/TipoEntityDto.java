@@ -8,7 +8,11 @@ import com.jaimes.back_obra.tipo.dto.input.Tipo2dInDTO;
 import com.jaimes.back_obra.tipo.dto.input.Tipo3dInDTO;
 import com.jaimes.back_obra.tipo.dto.output.Tipo2dOutDTO;
 import com.jaimes.back_obra.tipo.dto.output.Tipo3dOutDTO;
+import com.jaimes.back_obra.tipo.dto.output.TipoOutAllDTO;
 import com.jaimes.back_obra.tipo.entity.Tipo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TipoEntityDto {
     public static Tipo dtoToEntity3d(Tipo3dInDTO tipo3dInDTO){
@@ -120,6 +124,17 @@ public class TipoEntityDto {
         tipo.getAreas().setAreaTotal(tipo2dinDTO.getAreaTotal());
         //Devuelve el tipo para que se guarde
         return tipo;
+    }
+
+    public static List<TipoOutAllDTO> listAllTipos(List<Tipo> tipo){
+        List<TipoOutAllDTO> tipoOutAllDTOS = new ArrayList<>();
+        for(Tipo t : tipo){
+            TipoOutAllDTO tl = new TipoOutAllDTO();
+            tl.setId(t.getId());
+            tl.setNameTipo(t.getNameTipo());
+            tipoOutAllDTOS.add(tl);
+        }
+        return tipoOutAllDTOS;
     }
 
 }
