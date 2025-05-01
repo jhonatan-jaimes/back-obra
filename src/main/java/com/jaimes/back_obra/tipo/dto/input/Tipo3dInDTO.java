@@ -1,6 +1,6 @@
 package com.jaimes.back_obra.tipo.dto.input;
 
-public class TipoInDTO {
+public class Tipo3dInDTO {
 
     private Long id;
     private String nameElemento;
@@ -12,10 +12,10 @@ public class TipoInDTO {
     private Double areaUnidad;
     private Double areaTotal;
 
-    public TipoInDTO() {
+    public Tipo3dInDTO() {
     }
 
-    public TipoInDTO(Long id, String nameElemento, String nameTipo, Integer cantidad, Double largo, Double ancho, Double alto, Double areaUnidad, Double areaTotal) {
+    public Tipo3dInDTO(Long id, String nameElemento, String nameTipo, Integer cantidad, Double largo, Double ancho, Double alto, Double areaUnidad, Double areaTotal) {
         this.id = id;
         this.nameElemento = nameElemento;
         this.nameTipo = nameTipo;

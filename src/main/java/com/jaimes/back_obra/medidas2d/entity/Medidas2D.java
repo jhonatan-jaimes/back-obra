@@ -5,7 +5,7 @@ import com.jaimes.back_obra.tipo.entity.Tipo;
 import jakarta.persistence.*;
 
 @Entity
-public class Medidas2d {
+public class Medidas2D {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,10 +20,10 @@ public class Medidas2d {
     @JsonIgnore
     private Tipo tipo;
 
-    public Medidas2d() {
+    public Medidas2D() {
     }
 
-    public Medidas2d(Long id, Double largo, Double ancho, Tipo tipo) {
+    public Medidas2D(Long id, Double largo, Double ancho, Tipo tipo) {
         this.id = id;
         this.largo = largo;
         this.ancho = ancho;

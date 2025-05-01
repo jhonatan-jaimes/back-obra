@@ -3,7 +3,7 @@ package com.jaimes.back_obra.tipo.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.jaimes.back_obra.areas.entity.Areas;
-import com.jaimes.back_obra.medidas2d.entity.Medidas2d;
+import com.jaimes.back_obra.medidas2d.entity.Medidas2D;
 import com.jaimes.back_obra.medidas3d.entity.Medidas3D;
 import com.jaimes.back_obra.elementos.entity.Elementos;
 import com.jaimes.back_obra.mortero.entity.Mortero;
@@ -25,7 +25,7 @@ public class Tipo {
     private Medidas3D medidas3D;
 
     @OneToOne(mappedBy = "tipo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Medidas2d medidas2D;
+    private Medidas2D medidas2D;
 
     @OneToOne(mappedBy = "tipo", cascade = CascadeType.ALL, orphanRemoval = true)
     private Areas areas;
@@ -41,7 +41,7 @@ public class Tipo {
     public Tipo() {
     }
 
-    public Tipo(Long id, String nameTipo, Integer cantidad, Medidas3D medidas3D, Medidas2d medidas2D, Areas areas, Mortero mortero, Elementos elemento) {
+    public Tipo(Long id, String nameTipo, Integer cantidad, Medidas3D medidas3D, Medidas2D medidas2D, Areas areas, Mortero mortero, Elementos elemento) {
         this.id = id;
         this.nameTipo = nameTipo;
         this.cantidad = cantidad;
@@ -84,11 +84,11 @@ public class Tipo {
         this.medidas3D = medidas3D;
     }
 
-    public Medidas2d getMedidas2D() {
+    public Medidas2D getMedidas2D() {
         return medidas2D;
     }
 
-    public void setMedidas2D(Medidas2d medidas2D) {
+    public void setMedidas2D(Medidas2D medidas2D) {
         this.medidas2D = medidas2D;
     }
 

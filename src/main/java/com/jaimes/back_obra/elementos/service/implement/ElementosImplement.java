@@ -1,6 +1,6 @@
 package com.jaimes.back_obra.elementos.service.implement;
 
-import com.jaimes.back_obra.tipo.dto.input.TipoInDTO;
+import com.jaimes.back_obra.tipo.dto.input.Tipo3dInDTO;
 import com.jaimes.back_obra.elementos.dto.output.ElementoOutDTO;
 import com.jaimes.back_obra.elementos.entity.Elementos;
 import com.jaimes.back_obra.elementos.repository.ElementosRepository;
@@ -27,7 +27,7 @@ public class ElementosImplement implements ElementosService {
     }
 
     @Override
-    public Elementos saveElemetno(TipoInDTO tipoInDTO) {
+    public Elementos saveElemetno(Tipo3dInDTO tipo3dInDTO) {
         return null;
     }
 }
