@@ -1,6 +1,6 @@
 package com.jaimes.back_obra.tipo.dto.output;
 
-public class Tipo2dOneOutDTO {
+public class Tipo2dOutDTO {
 
     private Long id;
     private String nameTipo;
@@ -10,10 +10,10 @@ public class Tipo2dOneOutDTO {
     private Double areaUnidad;
     private Double areaTotal;
 
-    public Tipo2dOneOutDTO() {
+    public Tipo2dOutDTO() {
     }
 
-    public Tipo2dOneOutDTO(Long id, String nameTipo, Integer cantidad, Double largo, Double ancho, Double areaUnidad, Double areaTotal) {
+    public Tipo2dOutDTO(Long id, String nameTipo, Integer cantidad, Double largo, Double ancho, Double areaUnidad, Double areaTotal) {
         this.id = id;
         this.nameTipo = nameTipo;
         this.cantidad = cantidad;

@@ -54,8 +54,18 @@ public class TipoController {
     }
 
     @GetMapping("/buscar-tipos")
-    public ResponseEntity<?> allTipos (){
+    public ResponseEntity<?> allTipos(){
         return ResponseEntity.ok(tipoService.findAllTipo());
+    }
+
+    @GetMapping("/buscar-tipos3d")
+    public ResponseEntity<?> allTipos3d(){
+        return ResponseEntity.ok(tipoService.findAllTipo3d());
+    }
+
+    @GetMapping("/buscar-tipos2d")
+    public ResponseEntity<?> allTipo2d(){
+        return ResponseEntity.ok(tipoService.findAllTipo2d());
     }
 
 }

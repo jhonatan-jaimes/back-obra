@@ -1,8 +1,8 @@
 package com.jaimes.back_obra.tipo.service.implement;
 
 import com.jaimes.back_obra.tipo.dto.input.Tipo2dInDTO;
-import com.jaimes.back_obra.tipo.dto.output.Tipo2dOneOutDTO;
-import com.jaimes.back_obra.tipo.dto.output.Tipo3dOneOutDTO;
+import com.jaimes.back_obra.tipo.dto.output.Tipo2dOutDTO;
+import com.jaimes.back_obra.tipo.dto.output.Tipo3dOutDTO;
 import com.jaimes.back_obra.tipo.dto.output.TipoAllOutDTO;
 import com.jaimes.back_obra.tipo.repository.TipoRepository;
 import com.jaimes.back_obra.tipo.dto.input.Tipo3dInDTO;
@@ -31,9 +31,9 @@ public class TipoImplement implements TipoService {
     }
 
     @Override
-    public Tipo3dOneOutDTO findTipo3dById(Long id) {
+    public Tipo3dOutDTO findTipo3dById(Long id) {
         Tipo tipo = tipoRepository.findById(id).orElseThrow();
-        Tipo3dOneOutDTO tipo3DOneOutDTO = TipoEntityDto.entity3dToDto(tipo);
+        Tipo3dOutDTO tipo3DOneOutDTO = TipoEntityDto.entity3dToDto(tipo);
         return tipo3DOneOutDTO;
     }
 
@@ -51,11 +51,11 @@ public class TipoImplement implements TipoService {
     }
 
     @Override
-    public Tipo2dOneOutDTO findTipo2dById(Long id) {
+    public Tipo2dOutDTO findTipo2dById(Long id) {
         Tipo tipo = tipoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Tipo no encontrado"));
-        Tipo2dOneOutDTO tipo2DOneOutDTO = TipoEntityDto.entity2dToDto(tipo);
-        return tipo2DOneOutDTO;
+        Tipo2dOutDTO tipo2DOutDTO = TipoEntityDto.entity2dToDto(tipo);
+        return tipo2DOutDTO;
     }
 
     @Override
@@ -73,7 +73,19 @@ public class TipoImplement implements TipoService {
 
     @Override
     public List<TipoAllOutDTO> findAllTipo() {
-        List<Tipo> tipo = tipoRepository.findAll();
-        return  TipoEntityDto.listAllTipos(tipo);
+        List<Tipo> tipos = tipoRepository.findAll();
+        return  TipoEntityDto.listAllTipos(tipos);
+    }
+
+    @Override
+    public List<Tipo3dOutDTO> findAllTipo3d() {
+        List<Tipo> tipos = tipoRepository.findAll();
+        return TipoEntityDto.listTipo3d(tipos);
+    }
+
+    @Override
+    public List<Tipo2dOutDTO> findAllTipo2d() {
+        List<Tipo> tipos = tipoRepository.findAll();
+        return TipoEntityDto.listTipo2d(tipos);
     }
 }

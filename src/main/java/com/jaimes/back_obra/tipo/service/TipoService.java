@@ -2,8 +2,8 @@ package com.jaimes.back_obra.tipo.service;
 
 import com.jaimes.back_obra.tipo.dto.input.Tipo2dInDTO;
 import com.jaimes.back_obra.tipo.dto.input.Tipo3dInDTO;
-import com.jaimes.back_obra.tipo.dto.output.Tipo2dOneOutDTO;
-import com.jaimes.back_obra.tipo.dto.output.Tipo3dOneOutDTO;
+import com.jaimes.back_obra.tipo.dto.output.Tipo2dOutDTO;
+import com.jaimes.back_obra.tipo.dto.output.Tipo3dOutDTO;
 import com.jaimes.back_obra.tipo.dto.output.TipoAllOutDTO;
 import com.jaimes.back_obra.tipo.entity.Tipo;
 
@@ -15,12 +15,14 @@ public interface TipoService {
     String deleteTipo(Long id);
     List<TipoAllOutDTO> findAllTipo();
     //Buscar, guargar, actualizar tipos3d
-    Tipo3dOneOutDTO findTipo3dById(Long id);
+    Tipo3dOutDTO findTipo3dById(Long id);
     Tipo updateTipo3d(Tipo3dInDTO tipo3dInDTO);
     Tipo saveTipo3d(Tipo3dInDTO tipo3dInDTO);
+    List<Tipo3dOutDTO> findAllTipo3d();
     //Buscar, guargar, actualizar tipos2d
-    Tipo2dOneOutDTO findTipo2dById(Long id);
+    Tipo2dOutDTO findTipo2dById(Long id);
     Tipo updateTipo2d(Tipo2dInDTO tipo2dInDTO);
     Tipo saveTipo2d(Tipo2dInDTO tipo2dInDTO);
+    List<Tipo2dOutDTO> findAllTipo2d();
 
 }

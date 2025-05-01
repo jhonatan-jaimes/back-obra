@@ -6,8 +6,8 @@ import com.jaimes.back_obra.medidas2d.entity.Medidas2D;
 import com.jaimes.back_obra.medidas3d.entity.Medidas3D;
 import com.jaimes.back_obra.tipo.dto.input.Tipo2dInDTO;
 import com.jaimes.back_obra.tipo.dto.input.Tipo3dInDTO;
-import com.jaimes.back_obra.tipo.dto.output.Tipo2dOneOutDTO;
-import com.jaimes.back_obra.tipo.dto.output.Tipo3dOneOutDTO;
+import com.jaimes.back_obra.tipo.dto.output.Tipo2dOutDTO;
+import com.jaimes.back_obra.tipo.dto.output.Tipo3dOutDTO;
 import com.jaimes.back_obra.tipo.dto.output.TipoAllOutDTO;
 import com.jaimes.back_obra.tipo.entity.Tipo;
 
@@ -43,9 +43,9 @@ public class TipoEntityDto {
         return tipo;
     }
 
-    public static Tipo3dOneOutDTO entity3dToDto(Tipo tipo){
+    public static Tipo3dOutDTO entity3dToDto(Tipo tipo){
         //Crea un TIPOOUTDTO para enviar el json
-        Tipo3dOneOutDTO tipo3DOneOutDTO = new Tipo3dOneOutDTO();
+        Tipo3dOutDTO tipo3DOneOutDTO = new Tipo3dOutDTO();
         //Introdice todas las variables en el nuevo objeto
         tipo3DOneOutDTO.setId(tipo.getId());
         tipo3DOneOutDTO.setNameTipo(tipo.getNameTipo());
@@ -99,19 +99,19 @@ public class TipoEntityDto {
         return tipo;
     }
 
-    public static Tipo2dOneOutDTO entity2dToDto(Tipo tipo){
+    public static Tipo2dOutDTO entity2dToDto(Tipo tipo){
         //Crea un TIPOOUTDTO para enviar el json
-        Tipo2dOneOutDTO tipo2DOneOutDTO = new Tipo2dOneOutDTO();
+        Tipo2dOutDTO tipo2DOutDTO = new Tipo2dOutDTO();
         //Introdice todas las variables en el nuevo objeto
-        tipo2DOneOutDTO.setId(tipo.getId());
-        tipo2DOneOutDTO.setNameTipo(tipo.getNameTipo());
-        tipo2DOneOutDTO.setCantidad(tipo.getCantidad());
-        tipo2DOneOutDTO.setLargo(tipo.getMedidas2D().getLargo());
-        tipo2DOneOutDTO.setAncho(tipo.getMedidas2D().getAncho());
-        tipo2DOneOutDTO.setAreaUnidad(tipo.getAreas().getAreaUnidad());
-        tipo2DOneOutDTO.setAreaTotal(tipo.getAreas().getAreaTotal());
+        tipo2DOutDTO.setId(tipo.getId());
+        tipo2DOutDTO.setNameTipo(tipo.getNameTipo());
+        tipo2DOutDTO.setCantidad(tipo.getCantidad());
+        tipo2DOutDTO.setLargo(tipo.getMedidas2D().getLargo());
+        tipo2DOutDTO.setAncho(tipo.getMedidas2D().getAncho());
+        tipo2DOutDTO.setAreaUnidad(tipo.getAreas().getAreaUnidad());
+        tipo2DOutDTO.setAreaTotal(tipo.getAreas().getAreaTotal());
         //Devuelve el OBJETO (TIPOOUT)
-        return tipo2DOneOutDTO;
+        return tipo2DOutDTO;
     }
 
     public static Tipo updateTipo2d(Tipo tipo, Tipo2dInDTO tipo2dinDTO){
@@ -126,15 +126,61 @@ public class TipoEntityDto {
         return tipo;
     }
 
-    public static List<TipoAllOutDTO> listAllTipos(List<Tipo> tipo){
+    public static List<TipoAllOutDTO> listAllTipos(List<Tipo> tipos){
+        //Crea una lista de tipos para enviarla
         List<TipoAllOutDTO> tipoAllOutDTOS = new ArrayList<>();
-        for(Tipo t : tipo){
+        //Recorre los tipos para asignarlos a la lista
+        for(Tipo t : tipos){
             TipoAllOutDTO tl = new TipoAllOutDTO();
             tl.setId(t.getId());
             tl.setNameTipo(t.getNameTipo());
             tipoAllOutDTOS.add(tl);
         }
+        //Devuelve la lista
         return tipoAllOutDTOS;
+    }
+
+    public static List<Tipo3dOutDTO> listTipo3d(List<Tipo> tipos){
+        //Crea una lista de Tipos3d para enviarla
+        List<Tipo3dOutDTO> tipos3dOutDTO = new ArrayList<>();
+        //Recorre la lista de tipos para introducirla a la lista
+        for (Tipo t : tipos){
+            if(t.getMedidas2D() == null){
+                Tipo3dOutDTO t3d = new Tipo3dOutDTO();
+                t3d.setId(t.getId());
+                t3d.setNameTipo(t.getNameTipo());
+                t3d.setCantidad(t.getCantidad());
+                t3d.setLargo(t.getMedidas3D().getLargo());
+                t3d.setAncho(t.getMedidas3D().getAncho());
+                t3d.setAlto(t.getMedidas3D().getAlto());
+                t3d.setAreaUnidad(t.getAreas().getAreaUnidad());
+                t3d.setAreaTotal(t.getAreas().getAreaTotal());
+                tipos3dOutDTO.add(t3d);
+            }
+        }
+        //Devuelve la losta de tipos3d
+        return tipos3dOutDTO;
+    }
+
+    public static List<Tipo2dOutDTO> listTipo2d(List<Tipo> tipos){
+        //Crea una lista de Tipos2d para enviarla
+        List<Tipo2dOutDTO> tipos2dOutDTO = new ArrayList<>();
+        //Recorre la lista de tipos para introducirla a la lista
+        for(Tipo t : tipos){
+            if(t.getMedidas3D() == null){
+                Tipo2dOutDTO t2d = new Tipo2dOutDTO();
+                t2d.setId(t.getId());
+                t2d.setNameTipo(t.getNameTipo());
+                t2d.setCantidad(t.getCantidad());
+                t2d.setLargo(t.getMedidas2D().getLargo());
+                t2d.setAncho(t.getMedidas2D().getAncho());
+                t2d.setAreaUnidad(t.getAreas().getAreaUnidad());
+                t2d.setAreaTotal(t.getAreas().getAreaTotal());
+                tipos2dOutDTO.add(t2d);
+            }
+        }
+        //Devuelve la losta de tipos2d
+        return tipos2dOutDTO;
     }
 
 }

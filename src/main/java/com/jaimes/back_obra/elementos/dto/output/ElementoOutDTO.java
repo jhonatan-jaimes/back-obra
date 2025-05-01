@@ -1,6 +1,6 @@
 package com.jaimes.back_obra.elementos.dto.output;
 
-import com.jaimes.back_obra.tipo.dto.output.Tipo3dOneOutDTO;
+import com.jaimes.back_obra.tipo.dto.output.Tipo3dOutDTO;
 
 import java.util.List;
 
@@ -8,12 +8,12 @@ public class ElementoOutDTO {
 
     private Long id;
     private String nameElemento;
-    private List<Tipo3dOneOutDTO> tipo;
+    private List<Tipo3dOutDTO> tipo;
 
     public ElementoOutDTO() {
     }
 
-    public ElementoOutDTO(Long id, String nameElemento, List<Tipo3dOneOutDTO> tipo) {
+    public ElementoOutDTO(Long id, String nameElemento, List<Tipo3dOutDTO> tipo) {
         this.id = id;
         this.nameElemento = nameElemento;
         this.tipo = tipo;
@@ -35,11 +35,11 @@ public class ElementoOutDTO {
         this.nameElemento = nameElemento;
     }
 
-    public List<Tipo3dOneOutDTO> getTipo() {
+    public List<Tipo3dOutDTO> getTipo() {
         return tipo;
     }
 
-    public void setTipo(List<Tipo3dOneOutDTO> tipo) {
+    public void setTipo(List<Tipo3dOutDTO> tipo) {
         this.tipo = tipo;
     }
 }
