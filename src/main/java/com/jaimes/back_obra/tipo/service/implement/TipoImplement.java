@@ -1,9 +1,9 @@
 package com.jaimes.back_obra.tipo.service.implement;
 
 import com.jaimes.back_obra.tipo.dto.input.Tipo2dInDTO;
-import com.jaimes.back_obra.tipo.dto.output.Tipo2dOutDTO;
-import com.jaimes.back_obra.tipo.dto.output.Tipo3dOutDTO;
-import com.jaimes.back_obra.tipo.dto.output.TipoOutAllDTO;
+import com.jaimes.back_obra.tipo.dto.output.Tipo2dOneOutDTO;
+import com.jaimes.back_obra.tipo.dto.output.Tipo3dOneOutDTO;
+import com.jaimes.back_obra.tipo.dto.output.TipoAllOutDTO;
 import com.jaimes.back_obra.tipo.repository.TipoRepository;
 import com.jaimes.back_obra.tipo.dto.input.Tipo3dInDTO;
 import com.jaimes.back_obra.tipo.entity.Tipo;
@@ -31,10 +31,10 @@ public class TipoImplement implements TipoService {
     }
 
     @Override
-    public Tipo3dOutDTO findTipo3dById(Long id) {
+    public Tipo3dOneOutDTO findTipo3dById(Long id) {
         Tipo tipo = tipoRepository.findById(id).orElseThrow();
-        Tipo3dOutDTO tipo3dOutDTO = TipoEntityDto.entity3dToDto(tipo);
-        return tipo3dOutDTO;
+        Tipo3dOneOutDTO tipo3DOneOutDTO = TipoEntityDto.entity3dToDto(tipo);
+        return tipo3DOneOutDTO;
     }
 
     @Override
@@ -51,11 +51,11 @@ public class TipoImplement implements TipoService {
     }
 
     @Override
-    public Tipo2dOutDTO findTipo2dById(Long id) {
+    public Tipo2dOneOutDTO findTipo2dById(Long id) {
         Tipo tipo = tipoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Tipo no encontrado"));
-        Tipo2dOutDTO tipo2dOutDTO = TipoEntityDto.entity2dToDto(tipo);
-        return tipo2dOutDTO;
+        Tipo2dOneOutDTO tipo2DOneOutDTO = TipoEntityDto.entity2dToDto(tipo);
+        return tipo2DOneOutDTO;
     }
 
     @Override
@@ -72,7 +72,7 @@ public class TipoImplement implements TipoService {
     }
 
     @Override
-    public List<TipoOutAllDTO> findAllTipo() {
+    public List<TipoAllOutDTO> findAllTipo() {
         List<Tipo> tipo = tipoRepository.findAll();
         return  TipoEntityDto.listAllTipos(tipo);
     }

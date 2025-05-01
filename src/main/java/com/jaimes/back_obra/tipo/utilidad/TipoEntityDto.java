@@ -6,9 +6,9 @@ import com.jaimes.back_obra.medidas2d.entity.Medidas2D;
 import com.jaimes.back_obra.medidas3d.entity.Medidas3D;
 import com.jaimes.back_obra.tipo.dto.input.Tipo2dInDTO;
 import com.jaimes.back_obra.tipo.dto.input.Tipo3dInDTO;
-import com.jaimes.back_obra.tipo.dto.output.Tipo2dOutDTO;
-import com.jaimes.back_obra.tipo.dto.output.Tipo3dOutDTO;
-import com.jaimes.back_obra.tipo.dto.output.TipoOutAllDTO;
+import com.jaimes.back_obra.tipo.dto.output.Tipo2dOneOutDTO;
+import com.jaimes.back_obra.tipo.dto.output.Tipo3dOneOutDTO;
+import com.jaimes.back_obra.tipo.dto.output.TipoAllOutDTO;
 import com.jaimes.back_obra.tipo.entity.Tipo;
 
 import java.util.ArrayList;
@@ -43,20 +43,20 @@ public class TipoEntityDto {
         return tipo;
     }
 
-    public static Tipo3dOutDTO entity3dToDto(Tipo tipo){
+    public static Tipo3dOneOutDTO entity3dToDto(Tipo tipo){
         //Crea un TIPOOUTDTO para enviar el json
-        Tipo3dOutDTO tipo3dOutDTO = new Tipo3dOutDTO();
+        Tipo3dOneOutDTO tipo3DOneOutDTO = new Tipo3dOneOutDTO();
         //Introdice todas las variables en el nuevo objeto
-        tipo3dOutDTO.setId(tipo.getId());
-        tipo3dOutDTO.setNameTipo(tipo.getNameTipo());
-        tipo3dOutDTO.setCantidad(tipo.getCantidad());
-        tipo3dOutDTO.setLargo(tipo.getMedidas3D().getLargo());
-        tipo3dOutDTO.setAncho(tipo.getMedidas3D().getAncho());
-        tipo3dOutDTO.setAlto(tipo.getMedidas3D().getAlto());
-        tipo3dOutDTO.setAreaUnidad(tipo.getAreas().getAreaUnidad());
-        tipo3dOutDTO.setAreaTotal(tipo.getAreas().getAreaTotal());
+        tipo3DOneOutDTO.setId(tipo.getId());
+        tipo3DOneOutDTO.setNameTipo(tipo.getNameTipo());
+        tipo3DOneOutDTO.setCantidad(tipo.getCantidad());
+        tipo3DOneOutDTO.setLargo(tipo.getMedidas3D().getLargo());
+        tipo3DOneOutDTO.setAncho(tipo.getMedidas3D().getAncho());
+        tipo3DOneOutDTO.setAlto(tipo.getMedidas3D().getAlto());
+        tipo3DOneOutDTO.setAreaUnidad(tipo.getAreas().getAreaUnidad());
+        tipo3DOneOutDTO.setAreaTotal(tipo.getAreas().getAreaTotal());
         //Devuelve el OBJETO (TIPOOUT)
-        return tipo3dOutDTO;
+        return tipo3DOneOutDTO;
     }
 
     public static Tipo updateTipo3d(Tipo tipo, Tipo3dInDTO tipo3dInDTO){
@@ -99,19 +99,19 @@ public class TipoEntityDto {
         return tipo;
     }
 
-    public static Tipo2dOutDTO entity2dToDto(Tipo tipo){
+    public static Tipo2dOneOutDTO entity2dToDto(Tipo tipo){
         //Crea un TIPOOUTDTO para enviar el json
-        Tipo2dOutDTO tipo2dOutDTO = new Tipo2dOutDTO();
+        Tipo2dOneOutDTO tipo2DOneOutDTO = new Tipo2dOneOutDTO();
         //Introdice todas las variables en el nuevo objeto
-        tipo2dOutDTO.setId(tipo.getId());
-        tipo2dOutDTO.setNameTipo(tipo.getNameTipo());
-        tipo2dOutDTO.setCantidad(tipo.getCantidad());
-        tipo2dOutDTO.setLargo(tipo.getMedidas2D().getLargo());
-        tipo2dOutDTO.setAncho(tipo.getMedidas2D().getAncho());
-        tipo2dOutDTO.setAreaUnidad(tipo.getAreas().getAreaUnidad());
-        tipo2dOutDTO.setAreaTotal(tipo.getAreas().getAreaTotal());
+        tipo2DOneOutDTO.setId(tipo.getId());
+        tipo2DOneOutDTO.setNameTipo(tipo.getNameTipo());
+        tipo2DOneOutDTO.setCantidad(tipo.getCantidad());
+        tipo2DOneOutDTO.setLargo(tipo.getMedidas2D().getLargo());
+        tipo2DOneOutDTO.setAncho(tipo.getMedidas2D().getAncho());
+        tipo2DOneOutDTO.setAreaUnidad(tipo.getAreas().getAreaUnidad());
+        tipo2DOneOutDTO.setAreaTotal(tipo.getAreas().getAreaTotal());
         //Devuelve el OBJETO (TIPOOUT)
-        return tipo2dOutDTO;
+        return tipo2DOneOutDTO;
     }
 
     public static Tipo updateTipo2d(Tipo tipo, Tipo2dInDTO tipo2dinDTO){
@@ -126,15 +126,15 @@ public class TipoEntityDto {
         return tipo;
     }
 
-    public static List<TipoOutAllDTO> listAllTipos(List<Tipo> tipo){
-        List<TipoOutAllDTO> tipoOutAllDTOS = new ArrayList<>();
+    public static List<TipoAllOutDTO> listAllTipos(List<Tipo> tipo){
+        List<TipoAllOutDTO> tipoAllOutDTOS = new ArrayList<>();
         for(Tipo t : tipo){
-            TipoOutAllDTO tl = new TipoOutAllDTO();
+            TipoAllOutDTO tl = new TipoAllOutDTO();
             tl.setId(t.getId());
             tl.setNameTipo(t.getNameTipo());
-            tipoOutAllDTOS.add(tl);
+            tipoAllOutDTOS.add(tl);
         }
-        return tipoOutAllDTOS;
+        return tipoAllOutDTOS;
     }
 
 }
