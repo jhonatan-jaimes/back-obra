@@ -44,9 +44,14 @@ public class ElementosController {
         return ResponseEntity.ok(elementosService.saveAllElementos(elementoInDTOS));
     }
 
-    @DeleteMapping("{id}/eliminar-elemento")
+    @DeleteMapping("/{id}/eliminar-elemento")
     public ResponseEntity<?> deleteElemento (@PathVariable Long id){
         return ResponseEntity.ok(elementosService.deleteElemento(id));
+    }
+
+    @PutMapping("/actualizar-elemento")
+    public ResponseEntity<?> updateElemento(@RequestBody ElementoInDTO elementoInDTO){
+        return ResponseEntity.ok(elementosService.updateElemento(elementoInDTO));
     }
 
 }

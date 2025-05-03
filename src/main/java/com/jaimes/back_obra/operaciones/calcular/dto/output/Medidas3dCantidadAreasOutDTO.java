@@ -1,4 +1,4 @@
-package com.jaimes.back_obra.operaciones.dto.output;
+package com.jaimes.back_obra.operaciones.calcular.dto.output;
 
 public class Medidas3dCantidadAreasOutDTO {
 

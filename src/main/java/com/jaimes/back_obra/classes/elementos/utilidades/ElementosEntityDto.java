@@ -82,4 +82,9 @@ public class ElementosEntityDto {
         return allElemetos;
     }
 
+    public static Elementos updateElemento(Elementos elemento, ElementoInDTO elementoInDTO){
+        elemento.setNameElemento(elementoInDTO.getNameElemento());
+        return elemento;
+    }
+
 }

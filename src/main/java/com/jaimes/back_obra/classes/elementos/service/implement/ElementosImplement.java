@@ -62,4 +62,13 @@ public class ElementosImplement implements ElementosService {
         List<Elementos> elementos = elementosRepository.findAll();
         return ElementosEntityDto.allElementos(elementos);
     }
+
+    @Override
+    public String updateElemento(ElementoInDTO elementoInDTO) {
+        Elementos elemento = elementosRepository.findById(elementoInDTO.getId())
+                .orElseThrow(() -> new RuntimeException("El elemento no fue encontrado"));
+        ElementosEntityDto.updateElemento(elemento, elementoInDTO);
+        elementosRepository.save(elemento);
+        return "Actualizado";
+    }
 }

@@ -62,7 +62,8 @@ public class TipoImplement implements TipoService {
 
     @Override
     public String updateTipo2d(Tipo2dInDTO tipo2dInDTO) {
-        Tipo tipo = tipoRepository.findById(tipo2dInDTO.getId()).orElseThrow();
+        Tipo tipo = tipoRepository.findById(tipo2dInDTO.getId())
+                .orElseThrow(() -> new RuntimeException("El tipo no fue encontrado"));
         TipoEntityDto.updateTipo2d(tipo, tipo2dInDTO);
         tipoRepository.save(tipo);
         return "Actualizado";
