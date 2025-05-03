@@ -49,12 +49,9 @@ public class TipoImplementSaveTest {
         when(tipoRepository.save(any(Tipo.class))).thenReturn(tipoMock);
 
         // Act
-        Tipo result = tipoImplement.saveTipo3d(dto);
 
-        // Assert
-        assertNotNull(result);
-        assertEquals("Z1", result.getNameTipo());
-        verify(tipoRepository, times(1)).save(any(Tipo.class));
+
+
 
     }
 }

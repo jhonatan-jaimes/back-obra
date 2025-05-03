@@ -16,13 +16,13 @@ public interface TipoService {
     List<TipoAllOutDTO> findAllTipo();
     //Buscar, guargar, actualizar tipos3d
     Tipo3dOutDTO findTipo3dById(Long id);
-    Tipo updateTipo3d(Tipo3dInDTO tipo3dInDTO);
-    Tipo saveTipo3d(Tipo3dInDTO tipo3dInDTO);
+    String updateTipo3d(Tipo3dInDTO tipo3dInDTO);
+    String saveTipo3d(Tipo3dInDTO tipo3dInDTO);
     List<Tipo3dOutDTO> findAllTipo3d();
     //Buscar, guargar, actualizar tipos2d
     Tipo2dOutDTO findTipo2dById(Long id);
-    Tipo updateTipo2d(Tipo2dInDTO tipo2dInDTO);
-    Tipo saveTipo2d(Tipo2dInDTO tipo2dInDTO);
+    String updateTipo2d(Tipo2dInDTO tipo2dInDTO);
+    String saveTipo2d(Tipo2dInDTO tipo2dInDTO);
     List<Tipo2dOutDTO> findAllTipo2d();
 
 }

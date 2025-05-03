@@ -25,9 +25,10 @@ public class TipoImplement implements TipoService {
     }
 
     @Override
-    public Tipo saveTipo3d(Tipo3dInDTO tipo3dInDTO) {
+    public String saveTipo3d(Tipo3dInDTO tipo3dInDTO) {
         Tipo tipo = TipoEntityDto.dtoToEntity3d(tipo3dInDTO);
-        return tipoRepository.save(tipo);
+        tipoRepository.save(tipo);
+        return "Guardado";
     }
 
     @Override
@@ -38,16 +39,17 @@ public class TipoImplement implements TipoService {
     }
 
     @Override
-    public Tipo updateTipo3d(Tipo3dInDTO tipo3dInDTO) {
+    public String updateTipo3d(Tipo3dInDTO tipo3dInDTO) {
         Tipo tipo = tipoRepository.findById(tipo3dInDTO.getId()).orElseThrow();
         TipoEntityDto.updateTipo3d(tipo, tipo3dInDTO);
-        return tipoRepository.save(tipo);
+        tipoRepository.save(tipo);
+        return "Actualizado";
     }
 
     @Override
     public String deleteTipo(Long id) {
         tipoRepository.deleteById(id);
-        return "Tipo eliminado";
+        return "Eliminado";
     }
 
     @Override
@@ -59,16 +61,18 @@ public class TipoImplement implements TipoService {
     }
 
     @Override
-    public Tipo updateTipo2d(Tipo2dInDTO tipo2dInDTO) {
+    public String updateTipo2d(Tipo2dInDTO tipo2dInDTO) {
         Tipo tipo = tipoRepository.findById(tipo2dInDTO.getId()).orElseThrow();
         TipoEntityDto.updateTipo2d(tipo, tipo2dInDTO);
-        return tipoRepository.save(tipo);
+        tipoRepository.save(tipo);
+        return "Actualizado";
     }
 
     @Override
-    public Tipo saveTipo2d(Tipo2dInDTO tipo2dInDTO) {
+    public String saveTipo2d(Tipo2dInDTO tipo2dInDTO) {
         Tipo tipo = TipoEntityDto.dtoToEntity2d(tipo2dInDTO);
-        return tipoRepository.save(tipo);
+        tipoRepository.save(tipo);
+        return "Guardado";
     }
 
     @Override
