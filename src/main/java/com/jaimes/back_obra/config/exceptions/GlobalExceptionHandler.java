@@ -1,4 +1,4 @@
-package com.jaimes.back_obra.configuration.exceptions;
+package com.jaimes.back_obra.config.exceptions;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
