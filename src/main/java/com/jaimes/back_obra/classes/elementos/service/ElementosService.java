@@ -15,5 +15,6 @@ public interface ElementosService {
     String saveAllElementos(List<ElementoInDTO> elementoInDTO);
     String deleteElemento(Long id);
     List<ElementosListOutDTO> allElemetnos();
+    String updateElemento(ElementoInDTO elementoInDTO);
 
 }
