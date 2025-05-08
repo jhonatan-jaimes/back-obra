@@ -1,11 +1,10 @@
-package com.jaimes.back_obra.classes.mortero.entity;
+package com.jaimes.back_obra.classes.concreto.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jaimes.back_obra.classes.tipo.entity.Tipo;
 import jakarta.persistence.*;
 
-@Entity
-public class Mortero {
+public class Concreto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +14,7 @@ public class Mortero {
     private String psi;
     private Double cemento;
     private Double arena;
+    private Double grava;
     private Double agua;
 
     @OneToOne
@@ -22,14 +22,15 @@ public class Mortero {
     @JsonIgnore
     private Tipo tipo;
 
-    public Mortero() {
+    public Concreto() {
     }
 
-    public Mortero(Long id, String psi, Double cemento, Double arena, Double agua, Tipo tipo) {
+    public Concreto(Long id, String psi, Double cemento, Double arena, Double grava, Double agua, Tipo tipo) {
         this.id = id;
         this.psi = psi;
         this.cemento = cemento;
         this.arena = arena;
+        this.grava = grava;
         this.agua = agua;
         this.tipo = tipo;
     }
@@ -64,6 +65,14 @@ public class Mortero {
 
     public void setArena(Double arena) {
         this.arena = arena;
+    }
+
+    public Double getGrava() {
+        return grava;
+    }
+
+    public void setGrava(Double grava) {
+        this.grava = grava;
     }
 
     public Double getAgua() {

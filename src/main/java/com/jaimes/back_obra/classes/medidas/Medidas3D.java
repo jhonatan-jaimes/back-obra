@@ -1,4 +1,4 @@
-package com.jaimes.back_obra.classes.medidas3d.entity;
+package com.jaimes.back_obra.classes.medidas;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jaimes.back_obra.classes.tipo.entity.Tipo;

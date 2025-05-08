@@ -1,14 +1,14 @@
-package com.jaimes.back_obra.classes.areas.dto.output;
+package com.jaimes.back_obra.classes.areas.dto;
 
-public class AreasOutDTO {
+public class AreasDTO {
 
     private Double areaUnidad;
     private Double areaTotal;
 
-    public AreasOutDTO() {
+    public AreasDTO() {
     }
 
-    public AreasOutDTO(Double areaUnidad, Double areaTotal) {
+    public AreasDTO(Double areaUnidad, Double areaTotal) {
         this.areaUnidad = areaUnidad;
         this.areaTotal = areaTotal;
     }
