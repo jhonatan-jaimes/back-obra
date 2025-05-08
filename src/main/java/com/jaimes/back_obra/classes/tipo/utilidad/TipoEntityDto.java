@@ -2,8 +2,8 @@ package com.jaimes.back_obra.classes.tipo.utilidad;
 
 import com.jaimes.back_obra.classes.areas.entity.Areas;
 import com.jaimes.back_obra.classes.elementos.entity.Elementos;
-import com.jaimes.back_obra.classes.medidas2d.entity.Medidas2D;
-import com.jaimes.back_obra.classes.medidas3d.entity.Medidas3D;
+import com.jaimes.back_obra.classes.medidas.Medidas2D;
+import com.jaimes.back_obra.classes.medidas.Medidas3D;
 import com.jaimes.back_obra.classes.tipo.dto.input.Tipo2dInDTO;
 import com.jaimes.back_obra.classes.tipo.dto.input.Tipo3dInDTO;
 import com.jaimes.back_obra.classes.tipo.dto.output.Tipo2dOutDTO;
