@@ -2,6 +2,7 @@ package com.jaimes.back_obra.operaciones.calcular_medidas.utilidad;
 
 import com.jaimes.back_obra.classes.areas.dto.AreasDTO;
 import com.jaimes.back_obra.classes.concreto.dto.ConcretoDTO;
+import com.jaimes.back_obra.classes.mortero.dto.MorteroDTO;
 import com.jaimes.back_obra.operaciones.calcular_medidas.dto.input.Calcular2DInDTO;
 import com.jaimes.back_obra.operaciones.calcular_medidas.dto.input.Calcular3DInDTO;
 import com.jaimes.back_obra.operaciones.calcular_medidas.dto.output.Calculado2DOutDTO;
@@ -38,14 +39,16 @@ public class CalcularDto {
                     (calcular3DInDTO.getAncho() * Constantes.METROS_A_MILIMETROS) *
                     (calcular3DInDTO.getAlto() * Constantes.METROS_A_MILIMETROS)) /
                     Constantes.MILIMETROS3_A_METROS3;
-            Double areaTotal = areaUnidad * calcular3DInDTO.getCantidad();
+            Double areaTotal = ((areaUnidad * Constantes.METROS2_A_MILIMETROS2) *
+                    calcular3DInDTO.getCantidad()) / Constantes.MILIMETROS2_A_METROS2;
             aDto.setAreaUnidad(areaUnidad);
             aDto.setAreaTotal(areaTotal);
         } else if(object instanceof Calcular2DInDTO calcular2DInDTO){
             Double areaUnidad = ((calcular2DInDTO.getLargo() * Constantes.METROS_A_MILIMETROS) *
                     (calcular2DInDTO.getAncho() * Constantes.METROS_A_MILIMETROS)) /
                     Constantes.MILIMETROS2_A_METROS2;
-            Double areaTotal = areaUnidad * calcular2DInDTO.getCantidad();
+            Double areaTotal = ((areaUnidad * Constantes.METROS2_A_MILIMETROS2) *
+                    calcular2DInDTO.getCantidad()) / Constantes.MILIMETROS2_A_METROS2;
             aDto.setAreaUnidad(areaUnidad);
             aDto.setAreaTotal(areaTotal);
         }
@@ -57,22 +60,22 @@ public class CalcularDto {
         AreasDTO aDto = areasDTO(calcular3DInDTO);
         switch (calcular3DInDTO.getPsi()) {
             case "4000" -> {
-                double cementoUnidad = ((aDto.getAreaUnidad() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_4000_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
-                double arenaUnidad = ((aDto.getAreaUnidad() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_4000_ARENA) / Constantes.MILIMETROS3_A_METROS3;
-                double gravaUnidad = ((aDto.getAreaUnidad() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_4000_GRAVA) / Constantes.MILIMETROS3_A_METROS3;
-                double aguaUnidad = ((aDto.getAreaUnidad() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_4000_AGUA) / Constantes.MILIMETROS3_A_METROS3;
-                double cementoTotal = ((aDto.getAreaTotal() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_4000_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
-                double arenaTotal = ((aDto.getAreaTotal() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_4000_ARENA) / Constantes.MILIMETROS3_A_METROS3;
-                double gravaTotal = ((aDto.getAreaTotal() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_4000_GRAVA) / Constantes.MILIMETROS3_A_METROS3;
-                double aguaTotal = ((aDto.getAreaTotal() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_4000_AGUA) / Constantes.MILIMETROS3_A_METROS3;
+                double cementoUnidad = ((aDto.getAreaUnidad() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_4000_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
+                double arenaUnidad = ((aDto.getAreaUnidad() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_4000_ARENA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
+                double gravaUnidad = ((aDto.getAreaUnidad() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_4000_GRAVA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
+                double aguaUnidad = ((aDto.getAreaUnidad() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_4000_AGUA) / Constantes.MILIMETROS3_A_METROS3;
+                double cementoTotal = ((aDto.getAreaTotal() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_4000_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
+                double arenaTotal = ((aDto.getAreaTotal() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_4000_ARENA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
+                double gravaTotal = ((aDto.getAreaTotal() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_4000_GRAVA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
+                double aguaTotal = ((aDto.getAreaTotal() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_4000_AGUA) / Constantes.MILIMETROS3_A_METROS3;
                 cDto.setCementoUnidad(cementoUnidad);
                 cDto.setArenaUnidad(arenaUnidad);
                 cDto.setGravaUnidad(gravaUnidad);
@@ -83,22 +86,22 @@ public class CalcularDto {
                 cDto.setAguaTotal(aguaTotal);
             }
             case "3224" -> {
-                double cementoUnidad = ((aDto.getAreaUnidad() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_3224_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
-                double arenaUnidad = ((aDto.getAreaUnidad() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_3224_ARENA) / Constantes.MILIMETROS3_A_METROS3;
-                double gravaUnidad = ((aDto.getAreaUnidad() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_3224_GRAVA) / Constantes.MILIMETROS3_A_METROS3;
-                double aguaUnidad = ((aDto.getAreaUnidad() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_3224_AGUA) / Constantes.MILIMETROS3_A_METROS3;
-                double cementoTotal = ((aDto.getAreaTotal() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_3224_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
-                double arenaTotal = ((aDto.getAreaTotal() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_3224_ARENA) / Constantes.MILIMETROS3_A_METROS3;
-                double gravaTotal = ((aDto.getAreaTotal() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_3224_GRAVA) / Constantes.MILIMETROS3_A_METROS3;
-                double aguaTotal = ((aDto.getAreaTotal() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_3224_AGUA) / Constantes.MILIMETROS3_A_METROS3;
+                double cementoUnidad = ((aDto.getAreaUnidad() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_3224_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
+                double arenaUnidad = ((aDto.getAreaUnidad() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_3224_ARENA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
+                double gravaUnidad = ((aDto.getAreaUnidad() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_3224_GRAVA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
+                double aguaUnidad = ((aDto.getAreaUnidad() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_3224_AGUA) / Constantes.MILIMETROS3_A_METROS3;
+                double cementoTotal = ((aDto.getAreaTotal() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_3224_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
+                double arenaTotal = ((aDto.getAreaTotal() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_3224_ARENA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
+                double gravaTotal = ((aDto.getAreaTotal() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_3224_GRAVA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
+                double aguaTotal = ((aDto.getAreaTotal() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_3224_AGUA) / Constantes.MILIMETROS3_A_METROS3;
                 cDto.setCementoUnidad(cementoUnidad);
                 cDto.setArenaUnidad(arenaUnidad);
                 cDto.setGravaUnidad(gravaUnidad);
@@ -109,22 +112,22 @@ public class CalcularDto {
                 cDto.setAguaTotal(aguaTotal);
             }
             case "2850" -> {
-                double cementoUnidad = ((aDto.getAreaUnidad() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_2850_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
-                double arenaUnidad = ((aDto.getAreaUnidad() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_2850_ARENA) / Constantes.MILIMETROS3_A_METROS3;
-                double gravaUnidad = ((aDto.getAreaUnidad() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_2850_GRAVA) / Constantes.MILIMETROS3_A_METROS3;
-                double aguaUnidad = ((aDto.getAreaUnidad() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_2850_AGUA) / Constantes.MILIMETROS3_A_METROS3;
-                double cementoTotal = ((aDto.getAreaTotal() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_2850_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
-                double arenaTotal = ((aDto.getAreaTotal() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_2850_ARENA) / Constantes.MILIMETROS3_A_METROS3;
-                double gravaTotal = ((aDto.getAreaTotal() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_2850_GRAVA) / Constantes.MILIMETROS3_A_METROS3;
-                double aguaTotal = ((aDto.getAreaTotal() * Constantes.MILIMETROS3_A_METROS3) *
-                        Constantes.PSI_2850_AGUA) / Constantes.MILIMETROS3_A_METROS3;
+                double cementoUnidad = ((aDto.getAreaUnidad() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_2850_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
+                double arenaUnidad = ((aDto.getAreaUnidad() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_2850_ARENA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
+                double gravaUnidad = ((aDto.getAreaUnidad() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_2850_GRAVA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
+                double aguaUnidad = ((aDto.getAreaUnidad() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_2850_AGUA) / Constantes.MILIMETROS3_A_METROS3;
+                double cementoTotal = ((aDto.getAreaTotal() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_2850_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
+                double arenaTotal = ((aDto.getAreaTotal() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_2850_ARENA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
+                double gravaTotal = ((aDto.getAreaTotal() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_2850_GRAVA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
+                double aguaTotal = ((aDto.getAreaTotal() * Constantes.METROS3_A_MILIMETROS3) *
+                        Constantes.PSIC_2850_AGUA) / Constantes.MILIMETROS3_A_METROS3;
                 cDto.setCementoUnidad(cementoUnidad);
                 cDto.setArenaUnidad(arenaUnidad);
                 cDto.setGravaUnidad(gravaUnidad);
@@ -138,17 +141,90 @@ public class CalcularDto {
         return cDto;
     }
 
+    public static MorteroDTO morteroDTO(Calcular2DInDTO calcular2DInDTO){
+        MorteroDTO mDto = new MorteroDTO();
+        AreasDTO aDto = areasDTO(calcular2DInDTO);
+        switch (calcular2DInDTO.getPsi()){
+            case "4400" -> {
+                double cementoUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                        Constantes.PSIM_4400_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
+                double arenaUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                        Constantes.PSIM_4400_ARENA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
+                double aguaUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                        Constantes.PSIM_4400_AGUA) / Constantes.MILIMETROS3_A_METROS3;
+                double cementoTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                        Constantes.PSIM_4400_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
+                double arenaTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                        Constantes.PSIM_4400_ARENA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
+                double aguaTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                        Constantes.PSIM_4400_AGUA) / Constantes.MILIMETROS3_A_METROS3;
+                mDto.setCementoUnidad(cementoUnidad);
+                mDto.setArenaUnidad(arenaUnidad);
+                mDto.setAguaUnidad(aguaUnidad);
+                mDto.setCementoTotal(cementoTotal);
+                mDto.setArenaTotal(arenaTotal);
+                mDto.setAguaTotal(aguaTotal);
+            }
+            case "3980" -> {
+                double cementoUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                        Constantes.PSIM_3980_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
+                double arenaUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                        Constantes.PSIM_3980_ARENA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
+                double aguaUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                        Constantes.PSIM_3980_AGUA) / Constantes.MILIMETROS3_A_METROS3;
+                double cementoTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                        Constantes.PSIM_3980_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
+                double arenaTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                        Constantes.PSIM_3980_ARENA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
+                double aguaTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                        Constantes.PSIM_3980_AGUA) / Constantes.MILIMETROS3_A_METROS3;
+                mDto.setCementoUnidad(cementoUnidad);
+                mDto.setArenaUnidad(arenaUnidad);
+                mDto.setAguaUnidad(aguaUnidad);
+                mDto.setCementoTotal(cementoTotal);
+                mDto.setArenaTotal(arenaTotal);
+                mDto.setAguaTotal(aguaTotal);
+            }
+            case "3400" -> {
+                double cementoUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                        Constantes.PSIM_3400_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
+                double arenaUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                        Constantes.PSIM_3400_ARENA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
+                double aguaUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                        Constantes.PSIM_3400_AGUA) / Constantes.MILIMETROS3_A_METROS3;
+                double cementoTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                        Constantes.PSIM_3400_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
+                double arenaTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                        Constantes.PSIM_3400_ARENA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
+                double aguaTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                        Constantes.PSIM_3400_AGUA) / Constantes.MILIMETROS3_A_METROS3;
+                mDto.setCementoUnidad(cementoUnidad);
+                mDto.setArenaUnidad(arenaUnidad);
+                mDto.setAguaUnidad(aguaUnidad);
+                mDto.setCementoTotal(cementoTotal);
+                mDto.setArenaTotal(arenaTotal);
+                mDto.setAguaTotal(aguaTotal);
+            }
+        }
+        return mDto;
+    }
+
     public static Calculado2DOutDTO calcularMedidas2d(Calcular2DInDTO calcular2DInDTO){
         Calculado2DOutDTO calculado2DOutDTO = new Calculado2DOutDTO();
-        Double areaUnidad = ((calcular2DInDTO.getLargo() * Constantes.METROS_A_MILIMETROS) *
-                (calcular2DInDTO.getAncho() * Constantes.METROS_A_MILIMETROS)) /
-                Constantes.MILIMETROS2_A_METROS2;
-        Double areaTotal = areaUnidad * calcular2DInDTO.getCantidad();
+        AreasDTO areasDTO = areasDTO(calcular2DInDTO);
+        MorteroDTO morteroDTO = morteroDTO(calcular2DInDTO);
         calculado2DOutDTO.setLargo(calcular2DInDTO.getLargo());
         calculado2DOutDTO.setAncho(calcular2DInDTO.getAncho());
         calculado2DOutDTO.setCantidad(calcular2DInDTO.getCantidad());
-        calculado2DOutDTO.setAreaUnidad(areaUnidad);
-        calculado2DOutDTO.setAreaTotal(areaTotal);
+        calculado2DOutDTO.setAreaUnidad(areasDTO.getAreaUnidad());
+        calculado2DOutDTO.setAreaTotal(areasDTO.getAreaTotal());
+        calculado2DOutDTO.setPsi(calcular2DInDTO.getPsi());
+        calculado2DOutDTO.setCementoUnidad(morteroDTO.getCementoUnidad());
+        calculado2DOutDTO.setArenaUnidad(morteroDTO.getArenaUnidad());
+        calculado2DOutDTO.setAguaUnidad(morteroDTO.getAguaUnidad());
+        calculado2DOutDTO.setCementoTotal(morteroDTO.getCementoTotal());
+        calculado2DOutDTO.setArenaTotal(morteroDTO.getArenaTotal());
+        calculado2DOutDTO.setAguaTotal(morteroDTO.getAguaTotal());
         return calculado2DOutDTO;
     }
 }

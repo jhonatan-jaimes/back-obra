@@ -8,63 +8,77 @@ public class Calculado2DOutDTO {
     private Double areaUnidad;
     private Double areaTotal;
     private String psi;
-    private Double cemento;
-    private Double arena;
-    private Double agua;
+    private Double cementoUnidad;
+    private Double arenaUnidad;
+    private Double aguaUnidad;
+    private Double cementoTotal;
+    private Double arenaTotal;
+    private Double aguaTotal;
 
     public Calculado2DOutDTO() {
     }
 
-    public Calculado2DOutDTO(Double largo, Double ancho, Integer cantidad, Double areaUnidad, Double areaTotal, String psi, Double cemento, Double arena, Double agua) {
+    public Calculado2DOutDTO(Double largo, Double ancho, Integer cantidad, Double areaUnidad, Double areaTotal, String psi, Double cementoUnidad, Double arenaUnidad, Double aguaUnidad, Double cementoTotal, Double arenaTotal, Double aguaTotal) {
         this.largo = largo;
         this.ancho = ancho;
         this.cantidad = cantidad;
         this.areaUnidad = areaUnidad;
         this.areaTotal = areaTotal;
         this.psi = psi;
-        this.cemento = cemento;
-        this.arena = arena;
-        this.agua = agua;
+        this.cementoUnidad = cementoUnidad;
+        this.arenaUnidad = arenaUnidad;
+        this.aguaUnidad = aguaUnidad;
+        this.cementoTotal = cementoTotal;
+        this.arenaTotal = arenaTotal;
+        this.aguaTotal = aguaTotal;
     }
 
-    public Double getLargo() {
-        return largo;
+    public Double getAguaTotal() {
+        return aguaTotal;
     }
 
-    public void setLargo(Double largo) {
-        this.largo = largo;
+    public void setAguaTotal(Double aguaTotal) {
+        this.aguaTotal = aguaTotal;
     }
 
-    public Double getAncho() {
-        return ancho;
+    public Double getArenaTotal() {
+        return arenaTotal;
     }
 
-    public void setAncho(Double ancho) {
-        this.ancho = ancho;
+    public void setArenaTotal(Double arenaTotal) {
+        this.arenaTotal = arenaTotal;
     }
 
-    public Integer getCantidad() {
-        return cantidad;
+    public Double getCementoTotal() {
+        return cementoTotal;
     }
 
-    public void setCantidad(Integer cantidad) {
-        this.cantidad = cantidad;
+    public void setCementoTotal(Double cementoTotal) {
+        this.cementoTotal = cementoTotal;
     }
 
-    public Double getAreaUnidad() {
-        return areaUnidad;
+    public Double getAguaUnidad() {
+        return aguaUnidad;
     }
 
-    public void setAreaUnidad(Double areaUnidad) {
-        this.areaUnidad = areaUnidad;
+    public void setAguaUnidad(Double aguaUnidad) {
+        this.aguaUnidad = aguaUnidad;
     }
 
-    public Double getAreaTotal() {
-        return areaTotal;
+    public Double getArenaUnidad() {
+        return arenaUnidad;
     }
 
-    public void setAreaTotal(Double areaTotal) {
-        this.areaTotal = areaTotal;
+    public void setArenaUnidad(Double arenaUnidad) {
+        this.arenaUnidad = arenaUnidad;
+    }
+
+    public Double getCementoUnidad() {
+        return cementoUnidad;
+    }
+
+    public void setCementoUnidad(Double cementoUnidad) {
+        this.cementoUnidad = cementoUnidad;
     }
 
     public String getPsi() {
@@ -75,27 +89,43 @@ public class Calculado2DOutDTO {
         this.psi = psi;
     }
 
-    public Double getCemento() {
-        return cemento;
+    public Double getAreaTotal() {
+        return areaTotal;
     }
 
-    public void setCemento(Double cemento) {
-        this.cemento = cemento;
+    public void setAreaTotal(Double areaTotal) {
+        this.areaTotal = areaTotal;
     }
 
-    public Double getArena() {
-        return arena;
+    public Double getAreaUnidad() {
+        return areaUnidad;
     }
 
-    public void setArena(Double arena) {
-        this.arena = arena;
+    public void setAreaUnidad(Double areaUnidad) {
+        this.areaUnidad = areaUnidad;
     }
 
-    public Double getAgua() {
-        return agua;
+    public Integer getCantidad() {
+        return cantidad;
     }
 
-    public void setAgua(Double agua) {
-        this.agua = agua;
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public Double getAncho() {
+        return ancho;
+    }
+
+    public void setAncho(Double ancho) {
+        this.ancho = ancho;
+    }
+
+    public Double getLargo() {
+        return largo;
+    }
+
+    public void setLargo(Double largo) {
+        this.largo = largo;
     }
 }
