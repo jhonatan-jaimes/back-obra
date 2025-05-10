@@ -3,18 +3,24 @@ package com.jaimes.back_obra.classes.mortero.dto;
 public class MorteroDTO {
 
     private String psi;
-    private Double cemento;
-    private Double arena;
-    private Double agua;
+    private Double cementoUnidad;
+    private Double arenaUnidad;
+    private Double aguaUnidad;
+    private Double cementoTotal;
+    private Double arenaTotal;
+    private Double aguaTotal;
 
     public MorteroDTO() {
     }
 
-    public MorteroDTO(String psi, Double cemento, Double arena, Double agua) {
+    public MorteroDTO(String psi, Double cementoUnidad, Double arenaUnidad, Double aguaUnidad, Double cementoTotal, Double arenaTotal, Double aguaTotal) {
         this.psi = psi;
-        this.cemento = cemento;
-        this.arena = arena;
-        this.agua = agua;
+        this.cementoUnidad = cementoUnidad;
+        this.arenaUnidad = arenaUnidad;
+        this.aguaUnidad = aguaUnidad;
+        this.cementoTotal = cementoTotal;
+        this.arenaTotal = arenaTotal;
+        this.aguaTotal = aguaTotal;
     }
 
     public String getPsi() {
@@ -25,27 +31,51 @@ public class MorteroDTO {
         this.psi = psi;
     }
 
-    public Double getCemento() {
-        return cemento;
+    public Double getCementoUnidad() {
+        return cementoUnidad;
     }
 
-    public void setCemento(Double cemento) {
-        this.cemento = cemento;
+    public void setCementoUnidad(Double cementoUnidad) {
+        this.cementoUnidad = cementoUnidad;
     }
 
-    public Double getArena() {
-        return arena;
+    public Double getArenaUnidad() {
+        return arenaUnidad;
     }
 
-    public void setArena(Double arena) {
-        this.arena = arena;
+    public void setArenaUnidad(Double arenaUnidad) {
+        this.arenaUnidad = arenaUnidad;
     }
 
-    public Double getAgua() {
-        return agua;
+    public Double getAguaUnidad() {
+        return aguaUnidad;
     }
 
-    public void setAgua(Double agua) {
-        this.agua = agua;
+    public void setAguaUnidad(Double aguaUnidad) {
+        this.aguaUnidad = aguaUnidad;
+    }
+
+    public Double getCementoTotal() {
+        return cementoTotal;
+    }
+
+    public void setCementoTotal(Double cementoTotal) {
+        this.cementoTotal = cementoTotal;
+    }
+
+    public Double getArenaTotal() {
+        return arenaTotal;
+    }
+
+    public void setArenaTotal(Double arenaTotal) {
+        this.arenaTotal = arenaTotal;
+    }
+
+    public Double getAguaTotal() {
+        return aguaTotal;
+    }
+
+    public void setAguaTotal(Double aguaTotal) {
+        this.aguaTotal = aguaTotal;
     }
 }
