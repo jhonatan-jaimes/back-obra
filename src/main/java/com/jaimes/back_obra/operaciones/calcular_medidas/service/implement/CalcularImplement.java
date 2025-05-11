@@ -5,7 +5,7 @@ import com.jaimes.back_obra.operaciones.calcular_medidas.dto.input.Calcular3DInD
 import com.jaimes.back_obra.operaciones.calcular_medidas.dto.output.Calculado2DOutDTO;
 import com.jaimes.back_obra.operaciones.calcular_medidas.dto.output.Calculado3DOutDTO;
 import com.jaimes.back_obra.operaciones.calcular_medidas.service.CalcularService;
-import com.jaimes.back_obra.operaciones.calcular_medidas.utilidad.CalcularDto;
+import com.jaimes.back_obra.operaciones.utilidad.CalcularDto;
 import org.springframework.stereotype.Service;
 
 @Service

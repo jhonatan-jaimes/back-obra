@@ -1,4 +1,4 @@
-package com.jaimes.back_obra.operaciones.calcular_medidas.utilidad;
+package com.jaimes.back_obra.operaciones.utilidad;
 
 import com.jaimes.back_obra.classes.areas.dto.AreasDTO;
 import com.jaimes.back_obra.classes.concreto.dto.ConcretoDTO;

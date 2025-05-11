@@ -37,10 +37,45 @@ public class Tipo3dInDTO {
     @DecimalMin(value = "0,000000001", message = "El area debe ser mayor a cero")
     private Double areaTotal;
 
+    @NotBlank(message = "No puede estar vacio")
+    private String psi;
+
+    @NotNull(message = "No puede estar vacio")
+    @DecimalMin(value = "0.000000001", message = "El area debe ser mayor a cero")
+    private Double cementoUnidad;
+
+    @NotNull(message = "No puede estar vacio")
+    @DecimalMin(value = "0.000000001", message = "El area debe ser mayor a cero")
+    private Double arenaUnidad;
+
+    @NotNull(message = "No puede estar vacio")
+    @DecimalMin(value = "0.000000001", message = "El area debe ser mayor a cero")
+    private Double gravaUnidad;
+
+    @NotNull(message = "No puede estar vacio")
+    @DecimalMin(value = "0.000000001", message = "El area debe ser mayor a cero")
+    private Double aguaUnidad;
+
+    @NotNull(message = "No puede estar vacio")
+    @DecimalMin(value = "0.000000001", message = "El area debe ser mayor a cero")
+    private Double cementoTotal;
+
+    @NotNull(message = "No puede estar vacio")
+    @DecimalMin(value = "0.000000001", message = "El area debe ser mayor a cero")
+    private Double arenaTotal;
+
+    @NotNull(message = "No puede estar vacio")
+    @DecimalMin(value = "0.000000001", message = "El area debe ser mayor a cero")
+    private Double gravaTotal;
+
+    @NotNull(message = "No puede estar vacio")
+    @DecimalMin(value = "0.000000001", message = "El area debe ser mayor a cero")
+    private Double aguaTotal;
+
     public Tipo3dInDTO() {
     }
 
-    public Tipo3dInDTO(Long id, String nameElemento, String nameTipo, Integer cantidad, Double largo, Double ancho, Double alto, Double areaUnidad, Double areaTotal) {
+    public Tipo3dInDTO(Long id, String nameElemento, String nameTipo, Integer cantidad, Double largo, Double ancho, Double alto, Double areaUnidad, Double areaTotal, String psi, Double cementoUnidad, Double arenaUnidad, Double gravaUnidad, Double aguaUnidad, Double cementoTotal, Double arenaTotal, Double gravaTotal, Double aguaTotal) {
         this.id = id;
         this.nameElemento = nameElemento;
         this.nameTipo = nameTipo;
@@ -50,6 +85,15 @@ public class Tipo3dInDTO {
         this.alto = alto;
         this.areaUnidad = areaUnidad;
         this.areaTotal = areaTotal;
+        this.psi = psi;
+        this.cementoUnidad = cementoUnidad;
+        this.arenaUnidad = arenaUnidad;
+        this.gravaUnidad = gravaUnidad;
+        this.aguaUnidad = aguaUnidad;
+        this.cementoTotal = cementoTotal;
+        this.arenaTotal = arenaTotal;
+        this.gravaTotal = gravaTotal;
+        this.aguaTotal = aguaTotal;
     }
 
     public Long getId() {
@@ -122,5 +166,77 @@ public class Tipo3dInDTO {
 
     public void setAreaTotal(Double areaTotal) {
         this.areaTotal = areaTotal;
+    }
+
+    public String getPsi() {
+        return psi;
+    }
+
+    public void setPsi(String psi) {
+        this.psi = psi;
+    }
+
+    public Double getCementoUnidad() {
+        return cementoUnidad;
+    }
+
+    public void setCementoUnidad(Double cementoUnidad) {
+        this.cementoUnidad = cementoUnidad;
+    }
+
+    public Double getArenaUnidad() {
+        return arenaUnidad;
+    }
+
+    public void setArenaUnidad(Double arenaUnidad) {
+        this.arenaUnidad = arenaUnidad;
+    }
+
+    public Double getGravaUnidad() {
+        return gravaUnidad;
+    }
+
+    public void setGravaUnidad(Double gravaUnidad) {
+        this.gravaUnidad = gravaUnidad;
+    }
+
+    public Double getAguaUnidad() {
+        return aguaUnidad;
+    }
+
+    public void setAguaUnidad(Double aguaUnidad) {
+        this.aguaUnidad = aguaUnidad;
+    }
+
+    public Double getCementoTotal() {
+        return cementoTotal;
+    }
+
+    public void setCementoTotal(Double cementoTotal) {
+        this.cementoTotal = cementoTotal;
+    }
+
+    public Double getArenaTotal() {
+        return arenaTotal;
+    }
+
+    public void setArenaTotal(Double arenaTotal) {
+        this.arenaTotal = arenaTotal;
+    }
+
+    public Double getGravaTotal() {
+        return gravaTotal;
+    }
+
+    public void setGravaTotal(Double gravaTotal) {
+        this.gravaTotal = gravaTotal;
+    }
+
+    public Double getAguaTotal() {
+        return aguaTotal;
+    }
+
+    public void setAguaTotal(Double aguaTotal) {
+        this.aguaTotal = aguaTotal;
     }
 }
