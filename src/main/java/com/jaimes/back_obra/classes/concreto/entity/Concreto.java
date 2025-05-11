@@ -12,10 +12,14 @@ public class Concreto {
 
     @Basic
     private String psi;
-    private Double cemento;
-    private Double arena;
-    private Double grava;
-    private Double agua;
+    private Double cementoUnidad;
+    private Double cementoTotal;
+    private Double arenaUnidad;
+    private Double arenaTotal;
+    private Double gravaUnidad;
+    private Double gravaTotal;
+    private Double aguaUnidad;
+    private Double aguaTotal;
 
     @OneToOne
     @JoinColumn(name = "tipo_id")
@@ -25,13 +29,17 @@ public class Concreto {
     public Concreto() {
     }
 
-    public Concreto(Long id, String psi, Double cemento, Double arena, Double grava, Double agua, Tipo tipo) {
+    public Concreto(Long id, String psi, Double cementoUnidad, Double cementoTotal, Double arenaUnidad, Double arenaTotal, Double gravaUnidad, Double gravaTotal, Double aguaUnidad, Double aguaTotal, Tipo tipo) {
         this.id = id;
         this.psi = psi;
-        this.cemento = cemento;
-        this.arena = arena;
-        this.grava = grava;
-        this.agua = agua;
+        this.cementoUnidad = cementoUnidad;
+        this.cementoTotal = cementoTotal;
+        this.arenaUnidad = arenaUnidad;
+        this.arenaTotal = arenaTotal;
+        this.gravaUnidad = gravaUnidad;
+        this.gravaTotal = gravaTotal;
+        this.aguaUnidad = aguaUnidad;
+        this.aguaTotal = aguaTotal;
         this.tipo = tipo;
     }
 
@@ -51,36 +59,68 @@ public class Concreto {
         this.psi = psi;
     }
 
-    public Double getCemento() {
-        return cemento;
+    public Double getCementoUnidad() {
+        return cementoUnidad;
     }
 
-    public void setCemento(Double cemento) {
-        this.cemento = cemento;
+    public void setCementoUnidad(Double cementoUnidad) {
+        this.cementoUnidad = cementoUnidad;
     }
 
-    public Double getArena() {
-        return arena;
+    public Double getCementoTotal() {
+        return cementoTotal;
     }
 
-    public void setArena(Double arena) {
-        this.arena = arena;
+    public void setCementoTotal(Double cementoTotal) {
+        this.cementoTotal = cementoTotal;
     }
 
-    public Double getGrava() {
-        return grava;
+    public Double getArenaUnidad() {
+        return arenaUnidad;
     }
 
-    public void setGrava(Double grava) {
-        this.grava = grava;
+    public void setArenaUnidad(Double arenaUnidad) {
+        this.arenaUnidad = arenaUnidad;
     }
 
-    public Double getAgua() {
-        return agua;
+    public Double getArenaTotal() {
+        return arenaTotal;
     }
 
-    public void setAgua(Double agua) {
-        this.agua = agua;
+    public void setArenaTotal(Double arenaTotal) {
+        this.arenaTotal = arenaTotal;
+    }
+
+    public Double getGravaUnidad() {
+        return gravaUnidad;
+    }
+
+    public void setGravaUnidad(Double gravaUnidad) {
+        this.gravaUnidad = gravaUnidad;
+    }
+
+    public Double getGravaTotal() {
+        return gravaTotal;
+    }
+
+    public void setGravaTotal(Double gravaTotal) {
+        this.gravaTotal = gravaTotal;
+    }
+
+    public Double getAguaUnidad() {
+        return aguaUnidad;
+    }
+
+    public void setAguaUnidad(Double aguaUnidad) {
+        this.aguaUnidad = aguaUnidad;
+    }
+
+    public Double getAguaTotal() {
+        return aguaTotal;
+    }
+
+    public void setAguaTotal(Double aguaTotal) {
+        this.aguaTotal = aguaTotal;
     }
 
     public Tipo getTipo() {

@@ -1,9 +1,11 @@
 package com.jaimes.back_obra.classes.tipo.utilidad;
 
 import com.jaimes.back_obra.classes.areas.entity.Areas;
+import com.jaimes.back_obra.classes.concreto.entity.Concreto;
 import com.jaimes.back_obra.classes.elementos.entity.Elementos;
 import com.jaimes.back_obra.classes.medidas.Medidas2D;
 import com.jaimes.back_obra.classes.medidas.Medidas3D;
+import com.jaimes.back_obra.classes.mortero.entity.Mortero;
 import com.jaimes.back_obra.classes.tipo.dto.input.Tipo2dInDTO;
 import com.jaimes.back_obra.classes.tipo.dto.input.Tipo3dInDTO;
 import com.jaimes.back_obra.classes.tipo.dto.output.Tipo2dOutDTO;
@@ -36,9 +38,22 @@ public class TipoEntityDto {
         areas.setAreaUnidad(tipo3dInDTO.getAreaUnidad());
         areas.setAreaTotal(tipo3dInDTO.getAreaTotal());
         areas.setTipo(tipo);
+        //Crea elemento concreto para introducir los valores
+        Concreto concreto = new Concreto();
+        concreto.setPsi(tipo3dInDTO.getPsi());
+        concreto.setCementoUnidad(tipo3dInDTO.getCementoUnidad());
+        concreto.setArenaUnidad(tipo3dInDTO.getArenaUnidad());
+        concreto.setGravaUnidad(tipo3dInDTO.getGravaUnidad());
+        concreto.setAguaUnidad(tipo3dInDTO.getAguaUnidad());
+        concreto.setCementoTotal(tipo3dInDTO.getCementoTotal());
+        concreto.setArenaTotal(tipo3dInDTO.getArenaTotal());
+        concreto.setGravaTotal(tipo3dInDTO.getGravaTotal());
+        concreto.setAguaTotal(tipo3dInDTO.getAguaTotal());
+        concreto.setTipo(tipo);
         //Relaciona las medidas y las áreas al tipo
         tipo.setMedidas3D(medidas3D);
         tipo.setAreas(areas);
+        tipo.setConcreto(concreto);
         //Devuelve el OBJETO (TIPO)
         return tipo;
     }
@@ -92,9 +107,20 @@ public class TipoEntityDto {
         areas.setAreaUnidad(tipo2dInDTO.getAreaUnidad());
         areas.setAreaTotal(tipo2dInDTO.getAreaTotal());
         areas.setTipo(tipo);
+        //Crea elemento mortero para introducir los valores
+        Mortero mortero = new Mortero();
+        mortero.setPsi(tipo2dInDTO.getPsi());
+        mortero.setCementoUnidad(tipo2dInDTO.getCementoUnidad());
+        mortero.setArenaUnidad(tipo2dInDTO.getArenaUnidad());
+        mortero.setAguaUnidad(tipo2dInDTO.getAguaUnidad());
+        mortero.setCementoTotal(tipo2dInDTO.getCementoTotal());
+        mortero.setArenaTotal(tipo2dInDTO.getArenaTotal());
+        mortero.setAguaTotal(tipo2dInDTO.getAguaTotal());
+        mortero.setTipo(tipo);
         //Relaciona las medidas y las áreas al tipo
         tipo.setMedidas2D(medidas2D);
         tipo.setAreas(areas);
+        tipo.setMortero(mortero);
         //Devuelve el OBJETO (TIPO)
         return tipo;
     }
@@ -110,6 +136,13 @@ public class TipoEntityDto {
         tipo2DOutDTO.setAncho(tipo.getMedidas2D().getAncho());
         tipo2DOutDTO.setAreaUnidad(tipo.getAreas().getAreaUnidad());
         tipo2DOutDTO.setAreaTotal(tipo.getAreas().getAreaTotal());
+        tipo2DOutDTO.setPsi(tipo.getMortero().getPsi());
+        tipo2DOutDTO.setCementoUnidad(tipo.getMortero().getCementoUnidad());
+        tipo2DOutDTO.setArenaUnidad(tipo.getMortero().getArenaUnidad());
+        tipo2DOutDTO.setAguaUnidad(tipo.getMortero().getAguaUnidad());
+        tipo2DOutDTO.setCementoTotal(tipo.getMortero().getCementoTotal());
+        tipo2DOutDTO.setArenaTotal(tipo.getMortero().getArenaTotal());
+        tipo2DOutDTO.setAguaTotal(tipo.getMortero().getAguaTotal());
         //Devuelve el OBJETO (TIPOOUT)
         return tipo2DOutDTO;
     }

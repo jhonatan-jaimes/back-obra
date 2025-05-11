@@ -3,6 +3,7 @@ package com.jaimes.back_obra.classes.tipo.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.jaimes.back_obra.classes.areas.entity.Areas;
+import com.jaimes.back_obra.classes.concreto.entity.Concreto;
 import com.jaimes.back_obra.classes.medidas.Medidas2D;
 import com.jaimes.back_obra.classes.medidas.Medidas3D;
 import com.jaimes.back_obra.classes.elementos.entity.Elementos;
@@ -33,6 +34,9 @@ public class Tipo {
     @OneToOne(mappedBy = "tipo", cascade = CascadeType.ALL, orphanRemoval = true)
     private Mortero mortero;
 
+    @OneToOne(mappedBy = "tipo", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Concreto concreto;
+
     @ManyToOne
     @JoinColumn(name = "elemento_id")
     @JsonIgnore
@@ -41,7 +45,7 @@ public class Tipo {
     public Tipo() {
     }
 
-    public Tipo(Long id, String nameTipo, Integer cantidad, Medidas3D medidas3D, Medidas2D medidas2D, Areas areas, Mortero mortero, Elementos elemento) {
+    public Tipo(Long id, String nameTipo, Integer cantidad, Medidas3D medidas3D, Medidas2D medidas2D, Areas areas, Mortero mortero, Concreto concreto, Elementos elemento) {
         this.id = id;
         this.nameTipo = nameTipo;
         this.cantidad = cantidad;
@@ -49,6 +53,7 @@ public class Tipo {
         this.medidas2D = medidas2D;
         this.areas = areas;
         this.mortero = mortero;
+        this.concreto = concreto;
         this.elemento = elemento;
     }
 
@@ -106,6 +111,14 @@ public class Tipo {
 
     public void setMortero(Mortero mortero) {
         this.mortero = mortero;
+    }
+
+    public Concreto getConcreto() {
+        return concreto;
+    }
+
+    public void setConcreto(Concreto concreto) {
+        this.concreto = concreto;
     }
 
     public Elementos getElemento() {
