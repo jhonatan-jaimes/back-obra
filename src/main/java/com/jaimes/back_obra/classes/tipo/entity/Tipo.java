@@ -20,6 +20,7 @@ public class Tipo {
 
     @Basic
     private String nameTipo;
+    private String nameMaterial;
     private Integer cantidad;
 
     @OneToOne(mappedBy = "tipo", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -45,9 +46,10 @@ public class Tipo {
     public Tipo() {
     }
 
-    public Tipo(Long id, String nameTipo, Integer cantidad, Medidas3D medidas3D, Medidas2D medidas2D, Areas areas, Mortero mortero, Concreto concreto, Elementos elemento) {
+    public Tipo(Long id, String nameTipo, String nameMaterial, Integer cantidad, Medidas3D medidas3D, Medidas2D medidas2D, Areas areas, Mortero mortero, Concreto concreto, Elementos elemento) {
         this.id = id;
         this.nameTipo = nameTipo;
+        this.nameMaterial = nameMaterial;
         this.cantidad = cantidad;
         this.medidas3D = medidas3D;
         this.medidas2D = medidas2D;
@@ -71,6 +73,14 @@ public class Tipo {
 
     public void setNameTipo(String nameTipo) {
         this.nameTipo = nameTipo;
+    }
+
+    public String getNameMaterial() {
+        return nameMaterial;
+    }
+
+    public void setNameMaterial(String nameMaterial) {
+        this.nameMaterial = nameMaterial;
     }
 
     public Integer getCantidad() {

@@ -7,7 +7,8 @@ import com.jaimes.back_obra.classes.medidas.Medidas2D;
 import com.jaimes.back_obra.classes.medidas.Medidas3D;
 import com.jaimes.back_obra.classes.mortero.entity.Mortero;
 import com.jaimes.back_obra.classes.tipo.dto.input.Tipo2dInDTO;
-import com.jaimes.back_obra.classes.tipo.dto.input.Tipo3dInDTO;
+import com.jaimes.back_obra.classes.tipo.dto.input.Tipo3dConcretoInDTO;
+import com.jaimes.back_obra.classes.tipo.dto.input.Tipo3dMorteroInDTO;
 import com.jaimes.back_obra.classes.tipo.dto.output.Tipo2dOutDTO;
 import com.jaimes.back_obra.classes.tipo.dto.output.Tipo3dOutDTO;
 import com.jaimes.back_obra.classes.tipo.dto.output.TipoAllOutDTO;
@@ -17,44 +18,84 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TipoEntityDto {
-    public static Tipo dtoToEntity3d(Tipo3dInDTO tipo3dInDTO){
-        //Crea un nuevo elemento para ingresar el ID, NOMBRE y relacionarlo con el TIPO
-        Elementos elementos = new Elementos();
-        elementos.setId(tipo3dInDTO.getId());
-        elementos.setNameElemento(tipo3dInDTO.getNameElemento());
-        //Crea un nuevo tipo para introducir el nombre y relacionar con el elemento
+
+    public static Tipo dtoToEntity3d(Object object){
         Tipo tipo = new Tipo();
-        tipo.setNameTipo(tipo3dInDTO.getNameTipo());
-        tipo.setCantidad(tipo3dInDTO.getCantidad());
-        tipo.setElemento(elementos);
-        //Crea un elemento medidas para introdicir los atributos
-        Medidas3D medidas3D = new Medidas3D();
-        medidas3D.setLargo(tipo3dInDTO.getLargo());
-        medidas3D.setAncho(tipo3dInDTO.getAncho());
-        medidas3D.setAlto(tipo3dInDTO.getAlto());
-        medidas3D.setTipo(tipo);
-        //Crea un elemento area para las areas que viene desde el front
-        Areas areas = new Areas();
-        areas.setAreaUnidad(tipo3dInDTO.getAreaUnidad());
-        areas.setAreaTotal(tipo3dInDTO.getAreaTotal());
-        areas.setTipo(tipo);
-        //Crea elemento concreto para introducir los valores
-        Concreto concreto = new Concreto();
-        concreto.setPsi(tipo3dInDTO.getPsi());
-        concreto.setCementoUnidad(tipo3dInDTO.getCementoUnidad());
-        concreto.setArenaUnidad(tipo3dInDTO.getArenaUnidad());
-        concreto.setGravaUnidad(tipo3dInDTO.getGravaUnidad());
-        concreto.setAguaUnidad(tipo3dInDTO.getAguaUnidad());
-        concreto.setCementoTotal(tipo3dInDTO.getCementoTotal());
-        concreto.setArenaTotal(tipo3dInDTO.getArenaTotal());
-        concreto.setGravaTotal(tipo3dInDTO.getGravaTotal());
-        concreto.setAguaTotal(tipo3dInDTO.getAguaTotal());
-        concreto.setTipo(tipo);
-        //Relaciona las medidas y las áreas al tipo
-        tipo.setMedidas3D(medidas3D);
-        tipo.setAreas(areas);
-        tipo.setConcreto(concreto);
-        //Devuelve el OBJETO (TIPO)
+        if(object instanceof Tipo3dConcretoInDTO tipo3DConcretoInDTO){
+            //Crea un nuevo elemento para ingresar el ID, NOMBRE y relacionarlo con el TIPO
+            Elementos elementos = new Elementos();
+            elementos.setId(tipo3DConcretoInDTO.getId());
+            elementos.setNameElemento(tipo3DConcretoInDTO.getNameElemento());
+            //Crea un nuevo tipo para introducir el nombre y relacionar con el elemento
+            //Tipo tipo = new Tipo();
+            tipo.setNameMaterial(tipo3DConcretoInDTO.getNameMaterial());
+            tipo.setNameTipo(tipo3DConcretoInDTO.getNameTipo());
+            tipo.setCantidad(tipo3DConcretoInDTO.getCantidad());
+            tipo.setElemento(elementos);
+            //Crea un elemento medidas para introdicir los atributos
+            Medidas3D medidas3D = new Medidas3D();
+            medidas3D.setLargo(tipo3DConcretoInDTO.getLargo());
+            medidas3D.setAncho(tipo3DConcretoInDTO.getAncho());
+            medidas3D.setAlto(tipo3DConcretoInDTO.getAlto());
+            medidas3D.setTipo(tipo);
+            //Crea un elemento area para las areas que viene desde el front
+            Areas areas = new Areas();
+            areas.setAreaUnidad(tipo3DConcretoInDTO.getAreaUnidad());
+            areas.setAreaTotal(tipo3DConcretoInDTO.getAreaTotal());
+            areas.setTipo(tipo);
+            //Crea elemento concreto para introducir los valores
+            Concreto concreto = new Concreto();
+            concreto.setPsi(tipo3DConcretoInDTO.getPsi());
+            concreto.setCementoUnidad(tipo3DConcretoInDTO.getCementoUnidad());
+            concreto.setArenaUnidad(tipo3DConcretoInDTO.getArenaUnidad());
+            concreto.setGravaUnidad(tipo3DConcretoInDTO.getGravaUnidad());
+            concreto.setAguaUnidad(tipo3DConcretoInDTO.getAguaUnidad());
+            concreto.setCementoTotal(tipo3DConcretoInDTO.getCementoTotal());
+            concreto.setArenaTotal(tipo3DConcretoInDTO.getArenaTotal());
+            concreto.setGravaTotal(tipo3DConcretoInDTO.getGravaTotal());
+            concreto.setAguaTotal(tipo3DConcretoInDTO.getAguaTotal());
+            concreto.setTipo(tipo);
+            //Relaciona las medidas y las áreas al tipo
+            tipo.setMedidas3D(medidas3D);
+            tipo.setAreas(areas);
+            tipo.setConcreto(concreto);
+        } else if (object instanceof Tipo3dMorteroInDTO tipo3dMorteroInDTO) {
+            //Crea un nuevo elemento para ingresar el ID, NOMBRE y relacionarlo con el TIPO
+            Elementos elementos = new Elementos();
+            elementos.setId(tipo3dMorteroInDTO.getId());
+            elementos.setNameElemento(tipo3dMorteroInDTO.getNameElemento());
+            //Crea un nuevo tipo para introducir el nombre y relacionar con el elemento
+            //Tipo tipo = new Tipo();
+            tipo.setNameMaterial(tipo3dMorteroInDTO.getNameMaterial());
+            tipo.setNameTipo(tipo3dMorteroInDTO.getNameTipo());
+            tipo.setCantidad(tipo3dMorteroInDTO.getCantidad());
+            tipo.setElemento(elementos);
+            //Crea un elemento medidas para introdicir los atributos
+            Medidas3D medidas3D = new Medidas3D();
+            medidas3D.setLargo(tipo3dMorteroInDTO.getLargo());
+            medidas3D.setAncho(tipo3dMorteroInDTO.getAncho());
+            medidas3D.setAlto(tipo3dMorteroInDTO.getAlto());
+            medidas3D.setTipo(tipo);
+            //Crea un elemento area para las areas que viene desde el front
+            Areas areas = new Areas();
+            areas.setAreaUnidad(tipo3dMorteroInDTO.getAreaUnidad());
+            areas.setAreaTotal(tipo3dMorteroInDTO.getAreaTotal());
+            areas.setTipo(tipo);
+            //Crea elemento mortero para introducir los valores
+            Mortero mortero = new Mortero();
+            mortero.setPsi(tipo3dMorteroInDTO.getPsi());
+            mortero.setCementoUnidad(tipo3dMorteroInDTO.getCementoUnidad());
+            mortero.setArenaUnidad(tipo3dMorteroInDTO.getArenaUnidad());
+            mortero.setAguaUnidad(tipo3dMorteroInDTO.getAguaUnidad());
+            mortero.setCementoTotal(tipo3dMorteroInDTO.getCementoTotal());
+            mortero.setArenaTotal(tipo3dMorteroInDTO.getArenaTotal());
+            mortero.setAguaTotal(tipo3dMorteroInDTO.getAguaTotal());
+            mortero.setTipo(tipo);
+            //Relaciona las medidas y las áreas al tipo
+            tipo.setMedidas3D(medidas3D);
+            tipo.setAreas(areas);
+            tipo.setMortero(mortero);
+        }
         return tipo;
     }
 
@@ -70,19 +111,29 @@ public class TipoEntityDto {
         tipo3DOneOutDTO.setAlto(tipo.getMedidas3D().getAlto());
         tipo3DOneOutDTO.setAreaUnidad(tipo.getAreas().getAreaUnidad());
         tipo3DOneOutDTO.setAreaTotal(tipo.getAreas().getAreaTotal());
+        //Ingresar cantidades de obra
+        tipo3DOneOutDTO.setPsi(tipo.getConcreto().getPsi());
+        tipo3DOneOutDTO.setCementoUnidad(tipo.getConcreto().getCementoUnidad());
+        tipo3DOneOutDTO.setArenaUnidad(tipo.getConcreto().getArenaUnidad());
+        tipo3DOneOutDTO.setGravaUnidad(tipo.getConcreto().getGravaUnidad());
+        tipo3DOneOutDTO.setAguaUnidad(tipo.getConcreto().getAguaUnidad());
+        tipo3DOneOutDTO.setCementoTotal(tipo.getConcreto().getCementoTotal());
+        tipo3DOneOutDTO.setArenaTotal(tipo.getConcreto().getArenaTotal());
+        tipo3DOneOutDTO.setGravaTotal(tipo.getConcreto().getGravaTotal());
+        tipo3DOneOutDTO.setAguaTotal(tipo.getConcreto().getAguaTotal());
         //Devuelve el OBJETO (TIPOOUT)
         return tipo3DOneOutDTO;
     }
 
-    public static Tipo updateTipo3d(Tipo tipo, Tipo3dInDTO tipo3dInDTO){
+    public static Tipo updateTipo3d(Tipo tipo, Tipo3dConcretoInDTO tipo3DConcretoInDTO){
         //Asigna los nuevos valores para actualizar el TIPO
-        tipo.setNameTipo(tipo3dInDTO.getNameTipo());
-        tipo.setCantidad(tipo3dInDTO.getCantidad());
-        tipo.getMedidas3D().setLargo(tipo3dInDTO.getLargo());
-        tipo.getMedidas3D().setAncho(tipo3dInDTO.getAncho());
-        tipo.getMedidas3D().setAlto(tipo3dInDTO.getAlto());
-        tipo.getAreas().setAreaUnidad(tipo3dInDTO.getAreaUnidad());
-        tipo.getAreas().setAreaTotal(tipo3dInDTO.getAreaTotal());
+        tipo.setNameTipo(tipo3DConcretoInDTO.getNameTipo());
+        tipo.setCantidad(tipo3DConcretoInDTO.getCantidad());
+        tipo.getMedidas3D().setLargo(tipo3DConcretoInDTO.getLargo());
+        tipo.getMedidas3D().setAncho(tipo3DConcretoInDTO.getAncho());
+        tipo.getMedidas3D().setAlto(tipo3DConcretoInDTO.getAlto());
+        tipo.getAreas().setAreaUnidad(tipo3DConcretoInDTO.getAreaUnidad());
+        tipo.getAreas().setAreaTotal(tipo3DConcretoInDTO.getAreaTotal());
         //Devuelve el tipo para que se guarde
         return tipo;
     }
@@ -136,6 +187,7 @@ public class TipoEntityDto {
         tipo2DOutDTO.setAncho(tipo.getMedidas2D().getAncho());
         tipo2DOutDTO.setAreaUnidad(tipo.getAreas().getAreaUnidad());
         tipo2DOutDTO.setAreaTotal(tipo.getAreas().getAreaTotal());
+        //Ingresar cantidades de obra
         tipo2DOutDTO.setPsi(tipo.getMortero().getPsi());
         tipo2DOutDTO.setCementoUnidad(tipo.getMortero().getCementoUnidad());
         tipo2DOutDTO.setArenaUnidad(tipo.getMortero().getArenaUnidad());

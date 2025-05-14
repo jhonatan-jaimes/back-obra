@@ -1,11 +1,12 @@
 package com.jaimes.back_obra.classes.tipo.service.implement;
 
 import com.jaimes.back_obra.classes.tipo.dto.input.Tipo2dInDTO;
+import com.jaimes.back_obra.classes.tipo.dto.input.Tipo3dMorteroInDTO;
 import com.jaimes.back_obra.classes.tipo.dto.output.Tipo2dOutDTO;
 import com.jaimes.back_obra.classes.tipo.dto.output.Tipo3dOutDTO;
 import com.jaimes.back_obra.classes.tipo.dto.output.TipoAllOutDTO;
 import com.jaimes.back_obra.classes.tipo.repository.TipoRepository;
-import com.jaimes.back_obra.classes.tipo.dto.input.Tipo3dInDTO;
+import com.jaimes.back_obra.classes.tipo.dto.input.Tipo3dConcretoInDTO;
 import com.jaimes.back_obra.classes.tipo.entity.Tipo;
 import com.jaimes.back_obra.classes.tipo.service.TipoService;
 import com.jaimes.back_obra.classes.tipo.utilidad.TipoEntityDto;
@@ -25,11 +26,18 @@ public class TipoImplement implements TipoService {
     }
 
     @Override
-    public String saveTipo3d(Tipo3dInDTO tipo3dInDTO) {
-        Tipo tipo = TipoEntityDto.dtoToEntity3d(tipo3dInDTO);
-        tipoRepository.save(tipo);
+    public String saveTipo3d(Object object) {
+        if(object instanceof Tipo3dConcretoInDTO tipo3dConcretoInDTO){
+            Tipo tipo = TipoEntityDto.dtoToEntity3d(tipo3dConcretoInDTO);
+            tipoRepository.save(tipo);
+        } else if (object instanceof Tipo3dMorteroInDTO tipo3dMorteroInDTO) {
+            Tipo tipo = TipoEntityDto.dtoToEntity3d(tipo3dMorteroInDTO);
+            tipoRepository.save(tipo);
+        }
         return "Guardado";
     }
+
+
 
     @Override
     public Tipo3dOutDTO findTipo3dById(Long id) {
@@ -39,9 +47,9 @@ public class TipoImplement implements TipoService {
     }
 
     @Override
-    public String updateTipo3d(Tipo3dInDTO tipo3dInDTO) {
-        Tipo tipo = tipoRepository.findById(tipo3dInDTO.getId()).orElseThrow();
-        TipoEntityDto.updateTipo3d(tipo, tipo3dInDTO);
+    public String updateTipo3d(Tipo3dConcretoInDTO tipo3DConcretoInDTO) {
+        Tipo tipo = tipoRepository.findById(tipo3DConcretoInDTO.getId()).orElseThrow();
+        TipoEntityDto.updateTipo3d(tipo, tipo3DConcretoInDTO);
         tipoRepository.save(tipo);
         return "Actualizado";
     }

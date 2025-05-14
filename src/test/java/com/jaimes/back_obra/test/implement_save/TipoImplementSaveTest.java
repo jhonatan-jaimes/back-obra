@@ -1,6 +1,6 @@
 package com.jaimes.back_obra.test.implement_save;
 
-import com.jaimes.back_obra.classes.tipo.dto.input.Tipo3dInDTO;
+import com.jaimes.back_obra.classes.tipo.dto.input.Tipo3dConcretoInDTO;
 import com.jaimes.back_obra.classes.tipo.entity.Tipo;
 import com.jaimes.back_obra.classes.tipo.repository.TipoRepository;
 
@@ -34,7 +34,7 @@ public class TipoImplementSaveTest {
     @Test
     public void testSaveTipo3d(){
 
-        Tipo3dInDTO dto = new Tipo3dInDTO();
+        Tipo3dConcretoInDTO dto = new Tipo3dConcretoInDTO();
         dto.setId(1L);
         dto.setNameElemento("Ladrillo");
         dto.setNameTipo("Ladrillo galleta");
