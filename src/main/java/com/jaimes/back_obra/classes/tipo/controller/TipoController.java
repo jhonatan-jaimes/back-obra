@@ -1,7 +1,7 @@
 package com.jaimes.back_obra.classes.tipo.controller;
 
 import com.jaimes.back_obra.classes.tipo.dto.input.Tipo2dInDTO;
-import com.jaimes.back_obra.classes.tipo.dto.input.Tipo3dInDTO;
+import com.jaimes.back_obra.classes.tipo.dto.input.Tipo3dConcretoInDTO;
 import com.jaimes.back_obra.classes.tipo.service.TipoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +20,8 @@ public class TipoController {
     }
 
     @PostMapping("/guardar-tipo-3d")
-    public ResponseEntity<?> saveTipo3d(@Valid @RequestBody Tipo3dInDTO tipo3dInDTO){
-        return ResponseEntity.ok(tipoService.saveTipo3d(tipo3dInDTO));
+    public ResponseEntity<?> saveTipo3d(@Valid @RequestBody Tipo3dConcretoInDTO tipo3DConcretoInDTO){
+        return ResponseEntity.ok(tipoService.saveTipo3d(tipo3DConcretoInDTO));
     }
 
     @GetMapping("/{id}/buscar-tipo-3d")
@@ -30,8 +30,8 @@ public class TipoController {
     }
 
     @PutMapping("/actualizar-tipo-3d")
-    public ResponseEntity<?> updateTipo3d(@Valid @RequestBody Tipo3dInDTO tipo3dInDTO){
-        return ResponseEntity.ok(tipoService.updateTipo3d(tipo3dInDTO));
+    public ResponseEntity<?> updateTipo3d(@Valid @RequestBody Tipo3dConcretoInDTO tipo3DConcretoInDTO){
+        return ResponseEntity.ok(tipoService.updateTipo3d(tipo3DConcretoInDTO));
     }
 
     @DeleteMapping("/{id}/borrar-tipo")

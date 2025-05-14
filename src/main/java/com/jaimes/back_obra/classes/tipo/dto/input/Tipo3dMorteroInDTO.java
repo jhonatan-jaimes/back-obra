@@ -5,10 +5,11 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public class Tipo3dInDTO {
+public class Tipo3dMorteroInDTO {
 
     private Long id;
     private String nameElemento;
+    private String nameMaterial;
 
     @NotBlank(message = "El nombre del tipo no puede estar vacio")
     private String nameTipo;
@@ -30,11 +31,11 @@ public class Tipo3dInDTO {
     private Double alto;
 
     @NotNull(message = "No puede estar vacio")
-    @DecimalMin(value = "0,000000001", message = "El area debe ser mayor a cero")
+    @DecimalMin(value = "0.000000001", message = "El area debe ser mayor a cero")
     private Double areaUnidad;
 
     @NotNull(message = "No puede estar vacio")
-    @DecimalMin(value = "0,000000001", message = "El area debe ser mayor a cero")
+    @DecimalMin(value = "0.000000001", message = "El area debe ser mayor a cero")
     private Double areaTotal;
 
     @NotBlank(message = "No puede estar vacio")
@@ -50,10 +51,6 @@ public class Tipo3dInDTO {
 
     @NotNull(message = "No puede estar vacio")
     @DecimalMin(value = "0.000000001", message = "El area debe ser mayor a cero")
-    private Double gravaUnidad;
-
-    @NotNull(message = "No puede estar vacio")
-    @DecimalMin(value = "0.000000001", message = "El area debe ser mayor a cero")
     private Double aguaUnidad;
 
     @NotNull(message = "No puede estar vacio")
@@ -66,18 +63,15 @@ public class Tipo3dInDTO {
 
     @NotNull(message = "No puede estar vacio")
     @DecimalMin(value = "0.000000001", message = "El area debe ser mayor a cero")
-    private Double gravaTotal;
-
-    @NotNull(message = "No puede estar vacio")
-    @DecimalMin(value = "0.000000001", message = "El area debe ser mayor a cero")
     private Double aguaTotal;
 
-    public Tipo3dInDTO() {
+    public Tipo3dMorteroInDTO() {
     }
 
-    public Tipo3dInDTO(Long id, String nameElemento, String nameTipo, Integer cantidad, Double largo, Double ancho, Double alto, Double areaUnidad, Double areaTotal, String psi, Double cementoUnidad, Double arenaUnidad, Double gravaUnidad, Double aguaUnidad, Double cementoTotal, Double arenaTotal, Double gravaTotal, Double aguaTotal) {
+    public Tipo3dMorteroInDTO(Long id, String nameElemento, String nameMaterial, String nameTipo, Integer cantidad, Double largo, Double ancho, Double alto, Double areaUnidad, Double areaTotal, String psi, Double cementoUnidad, Double arenaUnidad, Double aguaUnidad, Double cementoTotal, Double arenaTotal, Double aguaTotal) {
         this.id = id;
         this.nameElemento = nameElemento;
+        this.nameMaterial = nameMaterial;
         this.nameTipo = nameTipo;
         this.cantidad = cantidad;
         this.largo = largo;
@@ -88,11 +82,9 @@ public class Tipo3dInDTO {
         this.psi = psi;
         this.cementoUnidad = cementoUnidad;
         this.arenaUnidad = arenaUnidad;
-        this.gravaUnidad = gravaUnidad;
         this.aguaUnidad = aguaUnidad;
         this.cementoTotal = cementoTotal;
         this.arenaTotal = arenaTotal;
-        this.gravaTotal = gravaTotal;
         this.aguaTotal = aguaTotal;
     }
 
@@ -110,6 +102,14 @@ public class Tipo3dInDTO {
 
     public void setNameElemento(String nameElemento) {
         this.nameElemento = nameElemento;
+    }
+
+    public String getNameMaterial() {
+        return nameMaterial;
+    }
+
+    public void setNameMaterial(String nameMaterial) {
+        this.nameMaterial = nameMaterial;
     }
 
     public String getNameTipo() {
@@ -192,14 +192,6 @@ public class Tipo3dInDTO {
         this.arenaUnidad = arenaUnidad;
     }
 
-    public Double getGravaUnidad() {
-        return gravaUnidad;
-    }
-
-    public void setGravaUnidad(Double gravaUnidad) {
-        this.gravaUnidad = gravaUnidad;
-    }
-
     public Double getAguaUnidad() {
         return aguaUnidad;
     }
@@ -222,14 +214,6 @@ public class Tipo3dInDTO {
 
     public void setArenaTotal(Double arenaTotal) {
         this.arenaTotal = arenaTotal;
-    }
-
-    public Double getGravaTotal() {
-        return gravaTotal;
-    }
-
-    public void setGravaTotal(Double gravaTotal) {
-        this.gravaTotal = gravaTotal;
     }
 
     public Double getAguaTotal() {

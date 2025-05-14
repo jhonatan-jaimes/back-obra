@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jaimes.back_obra.classes.tipo.entity.Tipo;
 import jakarta.persistence.*;
 
+@Entity
 public class Concreto {
 
     @Id
