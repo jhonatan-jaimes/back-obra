@@ -1,6 +1,8 @@
 package com.jaimes.back_obra.classes.elementos.controller;
 
 import com.jaimes.back_obra.classes.elementos.dto.input.ElementoInDTO;
+import com.jaimes.back_obra.classes.elementos.repository.ConcretoPsi;
+import com.jaimes.back_obra.classes.elementos.repository.MorteroPsi;
 import com.jaimes.back_obra.classes.elementos.service.ElementosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/elementos")
+@CrossOrigin(origins = "http://localhost:5173/")
 public class ElementosController {
 
     private final ElementosService elementosService;
@@ -52,6 +55,16 @@ public class ElementosController {
     @PutMapping("/actualizar-elemento")
     public ResponseEntity<?> updateElemento(@RequestBody ElementoInDTO elementoInDTO){
         return ResponseEntity.ok(elementosService.updateElemento(elementoInDTO));
+    }
+
+    @GetMapping("/mortero-psi")
+    public ResponseEntity<List<MorteroPsi>> morteroPsi(){
+        return ResponseEntity.ok(elementosService.materialPsiMortero());
+    }
+
+    @GetMapping("/concreto-psi")
+    public ResponseEntity<List<ConcretoPsi>> concretoPsi(){
+        return ResponseEntity.ok(elementosService.materialPsiConcreto());
     }
 
 }

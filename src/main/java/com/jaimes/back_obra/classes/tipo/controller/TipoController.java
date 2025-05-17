@@ -1,6 +1,6 @@
 package com.jaimes.back_obra.classes.tipo.controller;
 
-import com.jaimes.back_obra.classes.tipo.dto.input.Tipo2dInDTO;
+import com.jaimes.back_obra.classes.tipo.dto.input.Tipo2dConcretoInDTO;
 import com.jaimes.back_obra.classes.tipo.dto.input.Tipo3dConcretoInDTO;
 import com.jaimes.back_obra.classes.tipo.service.TipoService;
 import jakarta.validation.Valid;
@@ -40,8 +40,8 @@ public class TipoController {
     }
 
     @PostMapping("/guardar-tipo-2d")
-    public ResponseEntity<?> saveTipo2d(@Valid @RequestBody Tipo2dInDTO tipo2dInDTO){
-        return ResponseEntity.ok(tipoService.saveTipo2d(tipo2dInDTO));
+    public ResponseEntity<?> saveTipo2d(@Valid @RequestBody Tipo2dConcretoInDTO tipo2DConcretoInDTO){
+        return ResponseEntity.ok(tipoService.saveTipo2d(tipo2DConcretoInDTO));
     }
 
     @GetMapping("/{id}/buscar-tipo-2d")
@@ -50,8 +50,8 @@ public class TipoController {
     }
 
     @PutMapping("/actualizar-tipo-2d")
-    public ResponseEntity<?> updateTipo2d(@Valid @RequestBody Tipo2dInDTO tipo2dInDTO){
-        return ResponseEntity.ok(tipoService.updateTipo2d(tipo2dInDTO));
+    public ResponseEntity<?> updateTipo2d(@Valid @RequestBody Tipo2dConcretoInDTO tipo2DConcretoInDTO){
+        return ResponseEntity.ok(tipoService.updateTipo2d(tipo2DConcretoInDTO));
     }
 
     @GetMapping("/buscar-tipos")
