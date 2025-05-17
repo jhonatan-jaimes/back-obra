@@ -144,19 +144,22 @@ public class CalcularDto {
     public static MorteroDTO morteroDTO(Calcular2DInDTO calcular2DInDTO){
         MorteroDTO mDto = new MorteroDTO();
         AreasDTO aDto = areasDTO(calcular2DInDTO);
+        /*
+        Se multiplica por 20 ya que es el espesor de los morteros
+        */
         switch (calcular2DInDTO.getPsi()){
             case "4400" -> {
-                double cementoUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                double cementoUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 20) *
                         Constantes.PSIM_4400_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
-                double arenaUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                double arenaUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 20) *
                         Constantes.PSIM_4400_ARENA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
-                double aguaUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                double aguaUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 20) *
                         Constantes.PSIM_4400_AGUA) / Constantes.MILIMETROS3_A_METROS3;
-                double cementoTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                double cementoTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 20) *
                         Constantes.PSIM_4400_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
-                double arenaTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                double arenaTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 20) *
                         Constantes.PSIM_4400_ARENA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
-                double aguaTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                double aguaTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 20) *
                         Constantes.PSIM_4400_AGUA) / Constantes.MILIMETROS3_A_METROS3;
                 mDto.setCementoUnidad(cementoUnidad);
                 mDto.setArenaUnidad(arenaUnidad);
@@ -166,17 +169,17 @@ public class CalcularDto {
                 mDto.setAguaTotal(aguaTotal);
             }
             case "3980" -> {
-                double cementoUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                double cementoUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 20) *
                         Constantes.PSIM_3980_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
-                double arenaUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                double arenaUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 20) *
                         Constantes.PSIM_3980_ARENA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
-                double aguaUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                double aguaUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 20) *
                         Constantes.PSIM_3980_AGUA) / Constantes.MILIMETROS3_A_METROS3;
-                double cementoTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                double cementoTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 20) *
                         Constantes.PSIM_3980_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
-                double arenaTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                double arenaTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 20) *
                         Constantes.PSIM_3980_ARENA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
-                double aguaTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                double aguaTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 20) *
                         Constantes.PSIM_3980_AGUA) / Constantes.MILIMETROS3_A_METROS3;
                 mDto.setCementoUnidad(cementoUnidad);
                 mDto.setArenaUnidad(arenaUnidad);
@@ -186,17 +189,17 @@ public class CalcularDto {
                 mDto.setAguaTotal(aguaTotal);
             }
             case "3400" -> {
-                double cementoUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                double cementoUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 20) *
                         Constantes.PSIM_3400_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
-                double arenaUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                double arenaUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 20) *
                         Constantes.PSIM_3400_ARENA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
-                double aguaUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                double aguaUnidad = (((aDto.getAreaUnidad() * Constantes.METROS2_A_MILIMETROS2) * 20) *
                         Constantes.PSIM_3400_AGUA) / Constantes.MILIMETROS3_A_METROS3;
-                double cementoTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                double cementoTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 20) *
                         Constantes.PSIM_3400_CEMENTO) / Constantes.MILIMETROS3_A_METROS3;
-                double arenaTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                double arenaTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 20) *
                         Constantes.PSIM_3400_ARENA) / Constantes.DECIMALES_MILIMETROS3_A_METROS3;
-                double aguaTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 10) *
+                double aguaTotal = (((aDto.getAreaTotal() * Constantes.METROS2_A_MILIMETROS2) * 20) *
                         Constantes.PSIM_3400_AGUA) / Constantes.MILIMETROS3_A_METROS3;
                 mDto.setCementoUnidad(cementoUnidad);
                 mDto.setArenaUnidad(arenaUnidad);

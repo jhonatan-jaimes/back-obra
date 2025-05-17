@@ -6,7 +6,7 @@ import com.jaimes.back_obra.classes.elementos.entity.Elementos;
 import com.jaimes.back_obra.classes.medidas.Medidas2D;
 import com.jaimes.back_obra.classes.medidas.Medidas3D;
 import com.jaimes.back_obra.classes.mortero.entity.Mortero;
-import com.jaimes.back_obra.classes.tipo.dto.input.Tipo2dInDTO;
+import com.jaimes.back_obra.classes.tipo.dto.input.Tipo2dConcretoInDTO;
 import com.jaimes.back_obra.classes.tipo.dto.input.Tipo3dConcretoInDTO;
 import com.jaimes.back_obra.classes.tipo.dto.input.Tipo3dMorteroInDTO;
 import com.jaimes.back_obra.classes.tipo.dto.output.Tipo2dOutDTO;
@@ -138,35 +138,35 @@ public class TipoEntityDto {
         return tipo;
     }
 
-    public static Tipo dtoToEntity2d(Tipo2dInDTO tipo2dInDTO){
+    public static Tipo dtoToEntity2d(Tipo2dConcretoInDTO tipo2DConcretoInDTO){
         //Crea un nuevo elemento para ingresar el ID, NOMBRE y relacionarlo con el TIPO
         Elementos elementos = new Elementos();
-        elementos.setId(tipo2dInDTO.getId());
-        elementos.setNameElemento(tipo2dInDTO.getNameElemento());
+        elementos.setId(tipo2DConcretoInDTO.getId());
+        elementos.setNameElemento(tipo2DConcretoInDTO.getNameElemento());
         //Crea un nuevo tipo para introducir el nombre y relacionar con el elemento
         Tipo tipo = new Tipo();
-        tipo.setNameTipo(tipo2dInDTO.getNameTipo());
-        tipo.setCantidad(tipo2dInDTO.getCantidad());
+        tipo.setNameTipo(tipo2DConcretoInDTO.getNameTipo());
+        tipo.setCantidad(tipo2DConcretoInDTO.getCantidad());
         tipo.setElemento(elementos);
         //Crea un elemento medidas para introdicir los atributos
         Medidas2D medidas2D = new Medidas2D();
-        medidas2D.setLargo(tipo2dInDTO.getLargo());
-        medidas2D.setAncho(tipo2dInDTO.getAncho());
+        medidas2D.setLargo(tipo2DConcretoInDTO.getLargo());
+        medidas2D.setAncho(tipo2DConcretoInDTO.getAncho());
         medidas2D.setTipo(tipo);
         //Crea un elemento area para las areas que viene desde el front
         Areas areas = new Areas();
-        areas.setAreaUnidad(tipo2dInDTO.getAreaUnidad());
-        areas.setAreaTotal(tipo2dInDTO.getAreaTotal());
+        areas.setAreaUnidad(tipo2DConcretoInDTO.getAreaUnidad());
+        areas.setAreaTotal(tipo2DConcretoInDTO.getAreaTotal());
         areas.setTipo(tipo);
         //Crea elemento mortero para introducir los valores
         Mortero mortero = new Mortero();
-        mortero.setPsi(tipo2dInDTO.getPsi());
-        mortero.setCementoUnidad(tipo2dInDTO.getCementoUnidad());
-        mortero.setArenaUnidad(tipo2dInDTO.getArenaUnidad());
-        mortero.setAguaUnidad(tipo2dInDTO.getAguaUnidad());
-        mortero.setCementoTotal(tipo2dInDTO.getCementoTotal());
-        mortero.setArenaTotal(tipo2dInDTO.getArenaTotal());
-        mortero.setAguaTotal(tipo2dInDTO.getAguaTotal());
+        mortero.setPsi(tipo2DConcretoInDTO.getPsi());
+        mortero.setCementoUnidad(tipo2DConcretoInDTO.getCementoUnidad());
+        mortero.setArenaUnidad(tipo2DConcretoInDTO.getArenaUnidad());
+        mortero.setAguaUnidad(tipo2DConcretoInDTO.getAguaUnidad());
+        mortero.setCementoTotal(tipo2DConcretoInDTO.getCementoTotal());
+        mortero.setArenaTotal(tipo2DConcretoInDTO.getArenaTotal());
+        mortero.setAguaTotal(tipo2DConcretoInDTO.getAguaTotal());
         mortero.setTipo(tipo);
         //Relaciona las medidas y las áreas al tipo
         tipo.setMedidas2D(medidas2D);
@@ -199,14 +199,14 @@ public class TipoEntityDto {
         return tipo2DOutDTO;
     }
 
-    public static Tipo updateTipo2d(Tipo tipo, Tipo2dInDTO tipo2dinDTO){
+    public static Tipo updateTipo2d(Tipo tipo, Tipo2dConcretoInDTO tipo2DinDTOConcreto){
         //Asigna los nuevos valores para actualizar el TIPO
-        tipo.setNameTipo(tipo2dinDTO.getNameTipo());
-        tipo.setCantidad(tipo2dinDTO.getCantidad());
-        tipo.getMedidas2D().setLargo(tipo2dinDTO.getLargo());
-        tipo.getMedidas2D().setAncho(tipo2dinDTO.getAncho());
-        tipo.getAreas().setAreaUnidad(tipo2dinDTO.getAreaUnidad());
-        tipo.getAreas().setAreaTotal(tipo2dinDTO.getAreaTotal());
+        tipo.setNameTipo(tipo2DinDTOConcreto.getNameTipo());
+        tipo.setCantidad(tipo2DinDTOConcreto.getCantidad());
+        tipo.getMedidas2D().setLargo(tipo2DinDTOConcreto.getLargo());
+        tipo.getMedidas2D().setAncho(tipo2DinDTOConcreto.getAncho());
+        tipo.getAreas().setAreaUnidad(tipo2DinDTOConcreto.getAreaUnidad());
+        tipo.getAreas().setAreaTotal(tipo2DinDTOConcreto.getAreaTotal());
         //Devuelve el tipo para que se guarde
         return tipo;
     }

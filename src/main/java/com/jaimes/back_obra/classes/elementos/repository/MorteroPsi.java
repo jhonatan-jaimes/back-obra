@@ -1,14 +1,14 @@
-package com.jaimes.back_obra.classes.elementos.dto.output;
+package com.jaimes.back_obra.classes.elementos.repository;
 
-public class ElementosListOutDTO {
+public class MorteroPsi {
 
     private Long id;
     private String name;
 
-    public ElementosListOutDTO() {
+    public MorteroPsi() {
     }
 
-    public ElementosListOutDTO(Long id, String name) {
+    public MorteroPsi(Long id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -21,11 +21,11 @@ public class ElementosListOutDTO {
         this.id = id;
     }
 
-    public String getName() {
+    public String getNamePsi() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setNamePsi(String name) {
         this.name = name;
     }
 }

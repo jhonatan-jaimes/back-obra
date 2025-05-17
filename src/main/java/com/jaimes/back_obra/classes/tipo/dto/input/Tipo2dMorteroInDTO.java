@@ -1,13 +1,15 @@
 package com.jaimes.back_obra.classes.tipo.dto.input;
 
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-import jakarta.validation.constraints.*;
-
-
-public class Tipo2dInDTO {
+public class Tipo2dMorteroInDTO {
 
     private Long id;
     private String nameElemento;
+    private String nameMaterial;
 
     @NotBlank(message = "El nombre del tipo no puede estar vacio")
     private String nameTipo;
@@ -59,12 +61,13 @@ public class Tipo2dInDTO {
     @DecimalMin(value = "0.000000001", message = "El area debe ser mayor a cero")
     private Double aguaTotal;
 
-    public Tipo2dInDTO() {
+    public Tipo2dMorteroInDTO() {
     }
 
-    public Tipo2dInDTO(Long id, String nameElemento, String nameTipo, Integer cantidad, Double largo, Double ancho, Double areaUnidad, Double areaTotal, String psi, Double cementoUnidad, Double arenaUnidad, Double aguaUnidad, Double cementoTotal, Double arenaTotal, Double aguaTotal) {
+    public Tipo2dMorteroInDTO(Long id, String nameElemento, String nameMaterial, String nameTipo, Integer cantidad, Double largo, Double ancho, Double areaUnidad, Double areaTotal, String psi, Double cementoUnidad, Double arenaUnidad, Double aguaUnidad, Double cementoTotal, Double arenaTotal, Double aguaTotal) {
         this.id = id;
         this.nameElemento = nameElemento;
+        this.nameMaterial = nameMaterial;
         this.nameTipo = nameTipo;
         this.cantidad = cantidad;
         this.largo = largo;
@@ -94,6 +97,14 @@ public class Tipo2dInDTO {
 
     public void setNameElemento(String nameElemento) {
         this.nameElemento = nameElemento;
+    }
+
+    public String getNameMaterial() {
+        return nameMaterial;
+    }
+
+    public void setNameMaterial(String nameMaterial) {
+        this.nameMaterial = nameMaterial;
     }
 
     public String getNameTipo() {

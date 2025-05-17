@@ -1,6 +1,6 @@
 package com.jaimes.back_obra.classes.tipo.service.implement;
 
-import com.jaimes.back_obra.classes.tipo.dto.input.Tipo2dInDTO;
+import com.jaimes.back_obra.classes.tipo.dto.input.Tipo2dConcretoInDTO;
 import com.jaimes.back_obra.classes.tipo.dto.input.Tipo3dMorteroInDTO;
 import com.jaimes.back_obra.classes.tipo.dto.output.Tipo2dOutDTO;
 import com.jaimes.back_obra.classes.tipo.dto.output.Tipo3dOutDTO;
@@ -69,17 +69,17 @@ public class TipoImplement implements TipoService {
     }
 
     @Override
-    public String updateTipo2d(Tipo2dInDTO tipo2dInDTO) {
-        Tipo tipo = tipoRepository.findById(tipo2dInDTO.getId())
+    public String updateTipo2d(Tipo2dConcretoInDTO tipo2DConcretoInDTO) {
+        Tipo tipo = tipoRepository.findById(tipo2DConcretoInDTO.getId())
                 .orElseThrow(() -> new RuntimeException("El tipo no fue encontrado"));
-        TipoEntityDto.updateTipo2d(tipo, tipo2dInDTO);
+        TipoEntityDto.updateTipo2d(tipo, tipo2DConcretoInDTO);
         tipoRepository.save(tipo);
         return "Actualizado";
     }
 
     @Override
-    public String saveTipo2d(Tipo2dInDTO tipo2dInDTO) {
-        Tipo tipo = TipoEntityDto.dtoToEntity2d(tipo2dInDTO);
+    public String saveTipo2d(Tipo2dConcretoInDTO tipo2DConcretoInDTO) {
+        Tipo tipo = TipoEntityDto.dtoToEntity2d(tipo2DConcretoInDTO);
         tipoRepository.save(tipo);
         return "Guardado";
     }

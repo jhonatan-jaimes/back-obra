@@ -5,12 +5,15 @@ import com.jaimes.back_obra.classes.elementos.dto.output.Elemento2dOutDto;
 import com.jaimes.back_obra.classes.elementos.dto.output.Elemento3dOutDTO;
 import com.jaimes.back_obra.classes.elementos.dto.output.ElementosListOutDTO;
 import com.jaimes.back_obra.classes.elementos.entity.Elementos;
+import com.jaimes.back_obra.classes.elementos.repository.ConcretoPsi;
 import com.jaimes.back_obra.classes.elementos.repository.ElementosRepository;
+import com.jaimes.back_obra.classes.elementos.repository.MorteroPsi;
 import com.jaimes.back_obra.classes.elementos.service.ElementosService;
 import com.jaimes.back_obra.classes.elementos.utilidades.ElementosEntityDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -70,5 +73,23 @@ public class ElementosImplement implements ElementosService {
         ElementosEntityDto.updateElemento(elemento, elementoInDTO);
         elementosRepository.save(elemento);
         return "Actualizado";
+    }
+
+    @Override
+    public List<ConcretoPsi> materialPsiConcreto() {
+        List<ConcretoPsi> concretoPsi = new ArrayList<>();
+        concretoPsi.add(new ConcretoPsi(1L, "4000"));
+        concretoPsi.add(new ConcretoPsi(2L, "3224"));
+        concretoPsi.add(new ConcretoPsi(3L, "2850"));
+        return concretoPsi;
+    }
+
+    @Override
+    public List<MorteroPsi> materialPsiMortero() {
+        List<MorteroPsi> morteroPsi = new ArrayList<>();
+        morteroPsi.add(new MorteroPsi(1L, "4400"));
+        morteroPsi.add(new MorteroPsi(2L, "3980"));
+        morteroPsi.add(new MorteroPsi(3L, "3400"));
+        return morteroPsi;
     }
 }

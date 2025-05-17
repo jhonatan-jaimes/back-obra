@@ -76,7 +76,7 @@ public class ElementosEntityDto {
         for (Elementos e : elementos){
             ElementosListOutDTO eDto = new ElementosListOutDTO();
             eDto.setId(e.getId());
-            eDto.setNameElemento(e.getNameElemento());
+            eDto.setName(e.getNameElemento());
             allElemetos.add(eDto);
         }
         return allElemetos;
