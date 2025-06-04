@@ -27,12 +27,12 @@ public class ElementosController {
         return ResponseEntity.ok(elementosService.allElemetnos());
     }
 
-    @GetMapping("/{id}/elemento3d")
+    @GetMapping("/elemento3d/{id}")
     public ResponseEntity<?> findElemento3d(@PathVariable Long id) {
         return ResponseEntity.ok(elementosService.findElemento3d(id));
     }
 
-    @GetMapping("/{id}/elemento2d")
+    @GetMapping("/elemento2d/{id}")
     public ResponseEntity<?> findElemento2d(@PathVariable Long id){
         return ResponseEntity.ok(elementosService.findElemento2d(id));
     }
@@ -47,7 +47,7 @@ public class ElementosController {
         return ResponseEntity.ok(elementosService.saveAllElementos(elementoInDTOS));
     }
 
-    @DeleteMapping("/{id}/eliminar-elemento")
+    @DeleteMapping("/eliminar-elemento/{id}")
     public ResponseEntity<?> deleteElemento (@PathVariable Long id){
         return ResponseEntity.ok(elementosService.deleteElemento(id));
     }

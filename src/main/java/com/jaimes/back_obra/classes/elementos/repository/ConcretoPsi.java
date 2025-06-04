@@ -21,11 +21,11 @@ public class ConcretoPsi {
         this.id = id;
     }
 
-    public String getNamePsi() {
+    public String getName() {
         return name;
     }
 
-    public void setNamePsi(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 }

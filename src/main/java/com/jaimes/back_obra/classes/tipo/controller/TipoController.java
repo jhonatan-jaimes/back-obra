@@ -24,7 +24,7 @@ public class TipoController {
         return ResponseEntity.ok(tipoService.saveTipo3d(tipo3DConcretoInDTO));
     }
 
-    @GetMapping("/{id}/buscar-tipo-3d")
+    @GetMapping("/buscar-tipo-3d/{id}")
     public ResponseEntity<?> findTipo3dById(@PathVariable Long id){
         return ResponseEntity.ok(tipoService.findTipo3dById(id));
     }
@@ -34,7 +34,7 @@ public class TipoController {
         return ResponseEntity.ok(tipoService.updateTipo3d(tipo3DConcretoInDTO));
     }
 
-    @DeleteMapping("/{id}/borrar-tipo")
+    @DeleteMapping("/borrar-tipo/{id}")
     public ResponseEntity<?> deleteTipoById(@PathVariable Long id){
         return ResponseEntity.ok(tipoService.deleteTipo(id));
     }
@@ -44,7 +44,7 @@ public class TipoController {
         return ResponseEntity.ok(tipoService.saveTipo2d(tipo2DConcretoInDTO));
     }
 
-    @GetMapping("/{id}/buscar-tipo-2d")
+    @GetMapping("/buscar-tipo-2d/{id}")
     public ResponseEntity<?> findTipo2dById(@PathVariable Long id){
         return ResponseEntity.ok(tipoService.findTipo2dById(id));
     }
