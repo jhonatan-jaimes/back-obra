@@ -5,6 +5,7 @@ import com.jaimes.back_obra.classes.tipo.entity.Tipo;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "concreto")
 public class Concreto {
 
     @Id
