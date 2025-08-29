@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.jaimes.back_obra.assets.areas.entity.Areas;
 import com.jaimes.back_obra.assets.materiales.entity.Materiales;
-import com.jaimes.back_obra.assets.medidas.Medidas;
+import com.jaimes.back_obra.assets.medidas.entity.Medidas;
 import com.jaimes.back_obra.assets.elementos.entity.Elementos;
 
 import jakarta.persistence.*;
