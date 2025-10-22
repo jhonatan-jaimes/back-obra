@@ -13,9 +13,6 @@ public class Medidas {
 
     @Basic
     private String medidasTipo;
-    private Double largo;
-    private Double ancho;
-    private Double alto;
 
     @OneToOne
     @JoinColumn(name = "tipo_id")
@@ -25,12 +22,9 @@ public class Medidas {
     public Medidas() {
     }
 
-    public Medidas(Long id, String medidasTipo, Double largo, Double ancho, Double alto, Tipo tipo) {
+    public Medidas(Long id, String medidasTipo, Tipo tipo) {
         this.id = id;
         this.medidasTipo = medidasTipo;
-        this.largo = largo;
-        this.ancho = ancho;
-        this.alto = alto;
         this.tipo = tipo;
     }
 
@@ -48,30 +42,6 @@ public class Medidas {
 
     public void setMedidasTipo(String medidasTipo) {
         this.medidasTipo = medidasTipo;
-    }
-
-    public Double getLargo() {
-        return largo;
-    }
-
-    public void setLargo(Double largo) {
-        this.largo = largo;
-    }
-
-    public Double getAncho() {
-        return ancho;
-    }
-
-    public void setAncho(Double ancho) {
-        this.ancho = ancho;
-    }
-
-    public Double getAlto() {
-        return alto;
-    }
-
-    public void setAlto(Double alto) {
-        this.alto = alto;
     }
 
     public Tipo getTipo() {
