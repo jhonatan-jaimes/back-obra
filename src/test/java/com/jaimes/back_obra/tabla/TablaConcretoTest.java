@@ -1,6 +1,6 @@
 package com.jaimes.back_obra.tabla;
 
-import com.jaimes.back_obra.operaciones.utilidad.tabla.Dosificacion;
+import com.jaimes.back_obra.operaciones.utilidad.tabla.DosificacionConcreto;
 import com.jaimes.back_obra.operaciones.utilidad.tabla.TableConcreto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -16,7 +16,7 @@ public class TablaConcretoTest {
     @Test
     void getDosificacionTableTestProporcion(){
         TableConcreto tco = new TableConcreto();
-        Dosificacion dosi = tco.getDosificacion("1:2:3.5");
+        DosificacionConcreto dosi = tco.getDosificacion("1:2:3.5");
         Assertions.assertNotNull(dosi);
         Assertions.assertEquals("320", dosi.cemento());
         Assertions.assertEquals("0.52", dosi.arena());
@@ -27,7 +27,7 @@ public class TablaConcretoTest {
     @Test
     void getDosificacionTableTestResistencia(){
         TableConcreto tco = new TableConcreto();
-        Dosificacion dosi = tco.getDosificacion("189");
+        DosificacionConcreto dosi = tco.getDosificacion("189");
         Assertions.assertNotNull(dosi);
         Assertions.assertEquals("280", dosi.cemento());
         Assertions.assertEquals("0.55", dosi.arena());
