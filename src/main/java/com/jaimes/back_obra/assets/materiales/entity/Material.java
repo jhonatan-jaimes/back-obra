@@ -7,7 +7,7 @@ import com.jaimes.back_obra.assets.tipo.entity.Tipo;
 import jakarta.persistence.*;
 
 @Entity
-public class Materiales {
+public class Material {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,10 +27,10 @@ public class Materiales {
     @JsonIgnore
     private Tipo tipo;
 
-    public Materiales() {
+    public Material() {
     }
 
-    public Materiales(Long id, String materialTipo, Dosificacion dosificacion, Pisos pisos, Tipo tipo) {
+    public Material(Long id, String materialTipo, Dosificacion dosificacion, Pisos pisos, Tipo tipo) {
         this.id = id;
         this.materialTipo = materialTipo;
         this.dosificacion = dosificacion;

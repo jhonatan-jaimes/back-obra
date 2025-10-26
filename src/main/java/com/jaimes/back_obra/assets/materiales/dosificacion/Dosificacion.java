@@ -1,7 +1,7 @@
 package com.jaimes.back_obra.assets.materiales.dosificacion;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.jaimes.back_obra.assets.materiales.entity.Materiales;
+import com.jaimes.back_obra.assets.materiales.entity.Material;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,35 +12,35 @@ public class Dosificacion {
     private Long id;
 
     @Basic
-    private String psi;
-    private Double cementoOne;
-    private Double arenaOne;
-    private Double gravaOne;
-    private Double aguaOne;
-    private Double cementoAll;
-    private Double arenaAll;
-    private Double gravaAll;
-    private Double aguaAll;
+    private String dosificacion;
+
+    @OneToOne(mappedBy = "dosificacion", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Mortero morteroOne;
+
+    @OneToOne(mappedBy = "dosificacion", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Mortero morteroAll;
+
+    @OneToOne(mappedBy = "dosificacion", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Concreto concretoOne;
+
+    @OneToOne(mappedBy = "dosificacion", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Concreto concretoAll;
 
     @OneToOne
     @JoinColumn(name = "material_id")
     @JsonIgnore
-    private Materiales material;
+    private Material material;
 
     public Dosificacion() {
     }
 
-    public Dosificacion(Long id, String psi, Double cementoOne, Double arenaOne, Double gravaOne, Double aguaOne, Double cementoAll, Double arenaAll, Double gravaAll, Double aguaAll, Materiales material) {
+    public Dosificacion(Long id, String dosificacion, Mortero morteroOne, Mortero morteroAll, Concreto concretoOne, Concreto concretoAll, Material material) {
         this.id = id;
-        this.psi = psi;
-        this.cementoOne = cementoOne;
-        this.arenaOne = arenaOne;
-        this.gravaOne = gravaOne;
-        this.aguaOne = aguaOne;
-        this.cementoAll = cementoAll;
-        this.arenaAll = arenaAll;
-        this.gravaAll = gravaAll;
-        this.aguaAll = aguaAll;
+        this.dosificacion = dosificacion;
+        this.morteroOne = morteroOne;
+        this.morteroAll = morteroAll;
+        this.concretoOne = concretoOne;
+        this.concretoAll = concretoAll;
         this.material = material;
     }
 
@@ -52,83 +52,51 @@ public class Dosificacion {
         this.id = id;
     }
 
-    public String getPsi() {
-        return psi;
+    public String getDosificacion() {
+        return dosificacion;
     }
 
-    public void setPsi(String psi) {
-        this.psi = psi;
+    public void setDosificacion(String dosificacion) {
+        this.dosificacion = dosificacion;
     }
 
-    public Double getCementoOne() {
-        return cementoOne;
+    public Mortero getMorteroOne() {
+        return morteroOne;
     }
 
-    public void setCementoOne(Double cementoOne) {
-        this.cementoOne = cementoOne;
+    public void setMorteroOne(Mortero morteroOne) {
+        this.morteroOne = morteroOne;
     }
 
-    public Double getArenaOne() {
-        return arenaOne;
+    public Mortero getMorteroAll() {
+        return morteroAll;
     }
 
-    public void setArenaOne(Double arenaOne) {
-        this.arenaOne = arenaOne;
+    public void setMorteroAll(Mortero morteroAll) {
+        this.morteroAll = morteroAll;
     }
 
-    public Double getGravaOne() {
-        return gravaOne;
+    public Concreto getConcretoOne() {
+        return concretoOne;
     }
 
-    public void setGravaOne(Double gravaOne) {
-        this.gravaOne = gravaOne;
+    public void setConcretoOne(Concreto concretoOne) {
+        this.concretoOne = concretoOne;
     }
 
-    public Double getAguaOne() {
-        return aguaOne;
+    public Concreto getConcretoAll() {
+        return concretoAll;
     }
 
-    public void setAguaOne(Double aguaOne) {
-        this.aguaOne = aguaOne;
+    public void setConcretoAll(Concreto concretoAll) {
+        this.concretoAll = concretoAll;
     }
 
-    public Double getCementoAll() {
-        return cementoAll;
-    }
-
-    public void setCementoAll(Double cementoAll) {
-        this.cementoAll = cementoAll;
-    }
-
-    public Double getArenaAll() {
-        return arenaAll;
-    }
-
-    public void setArenaAll(Double arenaAll) {
-        this.arenaAll = arenaAll;
-    }
-
-    public Double getGravaAll() {
-        return gravaAll;
-    }
-
-    public void setGravaAll(Double gravaAll) {
-        this.gravaAll = gravaAll;
-    }
-
-    public Double getAguaAll() {
-        return aguaAll;
-    }
-
-    public void setAguaAll(Double aguaAll) {
-        this.aguaAll = aguaAll;
-    }
-
-    public Materiales getMaterial() {
+    public Material getMaterial() {
         return material;
     }
 
-    public void setMaterial(Materiales material) {
+    public void setMaterial(Material material) {
         this.material = material;
     }
 }

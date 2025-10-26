@@ -3,8 +3,7 @@ package com.jaimes.back_obra.assets.tipo.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.jaimes.back_obra.assets.areas.entity.Areas;
-import com.jaimes.back_obra.assets.materiales.entity.Materiales;
-import com.jaimes.back_obra.assets.medidas.entity.Medidas;
+import com.jaimes.back_obra.assets.materiales.entity.Material;
 import com.jaimes.back_obra.assets.elementos.entity.Elementos;
 
 import com.jaimes.back_obra.assets.medidas.entity.Medidas2D;
@@ -33,7 +32,7 @@ public class Tipo {
     private Areas areas;
 
     @OneToOne(mappedBy = "tipo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Materiales material;
+    private Material material;
 
     @ManyToOne
     @JoinColumn(name = "elemento_id")
@@ -43,7 +42,7 @@ public class Tipo {
     public Tipo() {
     }
 
-    public Tipo(Long id, String nameTipo, Integer cantidad, Medidas2D medidas2D, Medidas3D medidas3D, Areas areas, Materiales material, Elementos elemento) {
+    public Tipo(Long id, String nameTipo, Integer cantidad, Medidas2D medidas2D, Medidas3D medidas3D, Areas areas, Material material, Elementos elemento) {
         this.id = id;
         this.nameTipo = nameTipo;
         this.cantidad = cantidad;
@@ -102,11 +101,11 @@ public class Tipo {
         this.areas = areas;
     }
 
-    public Materiales getMaterial() {
+    public Material getMaterial() {
         return material;
     }
 
-    public void setMaterial(Materiales material) {
+    public void setMaterial(Material material) {
         this.material = material;
     }
 

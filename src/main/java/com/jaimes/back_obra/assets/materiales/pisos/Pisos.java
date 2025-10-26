@@ -1,7 +1,7 @@
 package com.jaimes.back_obra.assets.materiales.pisos;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.jaimes.back_obra.assets.materiales.entity.Materiales;
+import com.jaimes.back_obra.assets.materiales.entity.Material;
 import jakarta.persistence.*;
 
 @Entity
@@ -18,12 +18,12 @@ public class Pisos {
     @OneToOne
     @JoinColumn(name = "material_id")
     @JsonIgnore
-    private Materiales material;
+    private Material material;
 
     public Pisos() {
     }
 
-    public Pisos(Long id, Double areaBaldosa, Double allBaldosas, Materiales material) {
+    public Pisos(Long id, Double areaBaldosa, Double allBaldosas, Material material) {
         this.id = id;
         this.areaBaldosa = areaBaldosa;
         this.allBaldosas = allBaldosas;
@@ -54,11 +54,11 @@ public class Pisos {
         this.allBaldosas = allBaldosas;
     }
 
-    public Materiales getMaterial() {
+    public Material getMaterial() {
         return material;
     }
 
-    public void setMaterial(Materiales material) {
+    public void setMaterial(Material material) {
         this.material = material;
     }
 }

@@ -52,15 +52,15 @@ public class TipoToDto {
                     tipo.getAreas().getAreaOne(),
                     tipo.getAreas().getAreaAll(),
                     tipo.getMaterial().getMaterialTipo(),
-                    tipo.getMaterial().getDosificacion().getPsi(),
-                    tipo.getMaterial().getDosificacion().getCementoOne(),
-                    tipo.getMaterial().getDosificacion().getCementoAll(),
-                    tipo.getMaterial().getDosificacion().getArenaOne(),
-                    tipo.getMaterial().getDosificacion().getArenaAll(),
-                    tipo.getMaterial().getDosificacion().getGravaOne(),
-                    tipo.getMaterial().getDosificacion().getGravaAll(),
-                    tipo.getMaterial().getDosificacion().getAguaOne(),
-                    tipo.getMaterial().getDosificacion().getAguaAll()
+                    tipo.getMaterial().getDosificacion().getDosificacion(),
+                    tipo.getMaterial().getDosificacion().getConcretoOne().getCemento(),
+                    tipo.getMaterial().getDosificacion().getConcretoAll().getCemento(),
+                    tipo.getMaterial().getDosificacion().getConcretoOne().getArena(),
+                    tipo.getMaterial().getDosificacion().getConcretoAll().getArena(),
+                    tipo.getMaterial().getDosificacion().getConcretoOne().getGrava(),
+                    tipo.getMaterial().getDosificacion().getConcretoAll().getGrava(),
+                    tipo.getMaterial().getDosificacion().getConcretoOne().getAgua(),
+                    tipo.getMaterial().getDosificacion().getConcretoAll().getAgua()
                 );
 
             case "2d - concreto" -> new TipoConcreto2dDTO(
@@ -73,15 +73,15 @@ public class TipoToDto {
                     tipo.getAreas().getAreaOne(),
                     tipo.getAreas().getAreaAll(),
                     tipo.getMaterial().getMaterialTipo(),
-                    tipo.getMaterial().getDosificacion().getPsi(),
-                    tipo.getMaterial().getDosificacion().getCementoOne(),
-                    tipo.getMaterial().getDosificacion().getCementoAll(),
-                    tipo.getMaterial().getDosificacion().getArenaOne(),
-                    tipo.getMaterial().getDosificacion().getArenaAll(),
-                    tipo.getMaterial().getDosificacion().getGravaOne(),
-                    tipo.getMaterial().getDosificacion().getGravaAll(),
-                    tipo.getMaterial().getDosificacion().getAguaOne(),
-                    tipo.getMaterial().getDosificacion().getAguaAll()
+                    tipo.getMaterial().getDosificacion().getDosificacion(),
+                    tipo.getMaterial().getDosificacion().getConcretoOne().getCemento(),
+                    tipo.getMaterial().getDosificacion().getConcretoAll().getCemento(),
+                    tipo.getMaterial().getDosificacion().getConcretoOne().getArena(),
+                    tipo.getMaterial().getDosificacion().getConcretoAll().getArena(),
+                    tipo.getMaterial().getDosificacion().getConcretoOne().getGrava(),
+                    tipo.getMaterial().getDosificacion().getConcretoAll().getGrava(),
+                    tipo.getMaterial().getDosificacion().getConcretoOne().getAgua(),
+                    tipo.getMaterial().getDosificacion().getConcretoAll().getAgua()
             );
 
             case "2d - mortero" -> new TipoMortero2dDTO(
@@ -94,13 +94,13 @@ public class TipoToDto {
                     tipo.getAreas().getAreaOne(),
                     tipo.getAreas().getAreaAll(),
                     tipo.getMaterial().getMaterialTipo(),
-                    tipo.getMaterial().getDosificacion().getPsi(),
-                    tipo.getMaterial().getDosificacion().getCementoOne(),
-                    tipo.getMaterial().getDosificacion().getCementoAll(),
-                    tipo.getMaterial().getDosificacion().getArenaOne(),
-                    tipo.getMaterial().getDosificacion().getArenaAll(),
-                    tipo.getMaterial().getDosificacion().getAguaOne(),
-                    tipo.getMaterial().getDosificacion().getAguaAll()
+                    tipo.getMaterial().getDosificacion().getDosificacion(),
+                    tipo.getMaterial().getDosificacion().getMorteroOne().getCemento(),
+                    tipo.getMaterial().getDosificacion().getMorteroAll().getCemento(),
+                    tipo.getMaterial().getDosificacion().getMorteroOne().getArena(),
+                    tipo.getMaterial().getDosificacion().getMorteroAll().getArena(),
+                    tipo.getMaterial().getDosificacion().getMorteroOne().getAgua(),
+                    tipo.getMaterial().getDosificacion().getMorteroAll().getAgua()
             );
 
             case "3d - mortero" -> new TipoMortero3dDTO(
@@ -114,13 +114,13 @@ public class TipoToDto {
                     tipo.getAreas().getAreaOne(),
                     tipo.getAreas().getAreaAll(),
                     tipo.getMaterial().getMaterialTipo(),
-                    tipo.getMaterial().getDosificacion().getPsi(),
-                    tipo.getMaterial().getDosificacion().getCementoOne(),
-                    tipo.getMaterial().getDosificacion().getCementoAll(),
-                    tipo.getMaterial().getDosificacion().getArenaOne(),
-                    tipo.getMaterial().getDosificacion().getArenaAll(),
-                    tipo.getMaterial().getDosificacion().getAguaOne(),
-                    tipo.getMaterial().getDosificacion().getAguaAll()
+                    tipo.getMaterial().getDosificacion().getDosificacion(),
+                    tipo.getMaterial().getDosificacion().getMorteroOne().getCemento(),
+                    tipo.getMaterial().getDosificacion().getMorteroAll().getCemento(),
+                    tipo.getMaterial().getDosificacion().getMorteroOne().getArena(),
+                    tipo.getMaterial().getDosificacion().getMorteroAll().getArena(),
+                    tipo.getMaterial().getDosificacion().getMorteroOne().getAgua(),
+                    tipo.getMaterial().getDosificacion().getMorteroAll().getAgua()
                 );
 
             default -> throw new RuntimeException("El elemento no se puede convertir.");
