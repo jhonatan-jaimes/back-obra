@@ -6,5 +6,7 @@ import com.jaimes.back_obra.assets.medidas.entity.Medidas3D;
 
 public interface MedidasService {
     Areas calcularAreas(Medidas3D medidas, int cantidad);
+    Areas calcularAreas(double largo, double ancho , double alto, int cantidad);
     Areas calcularAreas(Medidas2D medidas, int cantidad);
+    Areas calcularAreas(double largo, double ancho, int cantidad);
 }

@@ -16,12 +16,8 @@ public class MedidasImplement implements MedidasService {
             throw new RuntimeException("No puede haber medidas nulas");
         }
 
-        if (medidas.getLargo() == 0 || medidas.getAncho() == 0 || medidas.getAlto() == 0){
-            throw new RuntimeException("Las medidas no pueden valer 0");
-        }
-
-        if (medidas.getLargo() < 0 || medidas.getAncho() < 0 || medidas.getAlto() < 0){
-            throw new RuntimeException("Los valores no pueden ser negatvos");
+        if (medidas.getLargo() <= 0 || medidas.getAncho() <= 0 || medidas.getAlto() <= 0 || cantidad <= 0){
+            throw new RuntimeException("Las medidas no pueden valer 0 o inferior");
         }
 
         // Se multiplica por constante para convertirlo en número entero y asi tener mayor precision
@@ -39,18 +35,31 @@ public class MedidasImplement implements MedidasService {
     }
 
     @Override
+    public Areas calcularAreas(double largo, double ancho, double alto, int cantidad){
+        if(largo <= 0 || ancho <= 0|| alto <= 0 || cantidad <= 0){
+            throw new RuntimeException("Los valores no pueden ser cero ni negativo");
+        }
+        return calcularAreas(new Medidas3D(null, null, null, largo, ancho, alto), cantidad);
+    }
+
+    @Override
+    public Areas calcularAreas(double largo, double ancho, int cantidad){
+        if(largo <= 0 || ancho <= 0|| cantidad <= 0){
+            throw new RuntimeException("Los valores no pueden ser cero ni negativo");
+        }
+        return calcularAreas(new Medidas2D(null, null, null, largo, ancho), cantidad);
+    }
+
+    @Override
     public Areas calcularAreas(Medidas2D medidas, int cantidad) {
         if (medidas.getLargo() == null || medidas.getAncho() == null){
             throw new RuntimeException("No puede haber medidas nulas");
         }
 
-        if (medidas.getLargo() == 0 || medidas.getAncho() == 0){
+        if (medidas.getLargo() <= 0 || medidas.getAncho() <= 0){
             throw new RuntimeException("Las medidas no pueden valer 0");
         }
 
-        if (medidas.getLargo() < 0 || medidas.getAncho() < 0){
-            throw new RuntimeException("Los valores no pueden ser negatvos");
-        }
         // Se multiplica por constante para convertirlo en número entero y asi tener mayor precision
         double areaOne = Math.round(Transform.MILIMETROS2_TO_METROS2.convertir(
                 Transform.METROS_TO_MILIMETROS.convertir(medidas.getLargo()) *
