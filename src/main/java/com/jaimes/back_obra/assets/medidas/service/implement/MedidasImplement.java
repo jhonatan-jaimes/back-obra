@@ -1,6 +1,8 @@
 package com.jaimes.back_obra.assets.medidas.service.implement;
 
 import com.jaimes.back_obra.assets.areas.entity.Areas;
+import com.jaimes.back_obra.assets.medidas.dto.Medidas2dDTO;
+import com.jaimes.back_obra.assets.medidas.dto.Medidas3dDTO;
 import com.jaimes.back_obra.assets.medidas.entity.Medidas2D;
 import com.jaimes.back_obra.assets.medidas.entity.Medidas3D;
 import com.jaimes.back_obra.assets.medidas.service.MedidasService;
@@ -10,66 +12,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class MedidasImplement implements MedidasService {
 
+
     @Override
-    public Areas calcularAreas(Medidas3D medidas, int cantidad) {
-        if (medidas.getLargo() == null || medidas.getAncho() == null || medidas.getAlto() == null){
-            throw new RuntimeException("No puede haber medidas nulas");
-        }
-
-        if (medidas.getLargo() <= 0 || medidas.getAncho() <= 0 || medidas.getAlto() <= 0 || cantidad <= 0){
-            throw new RuntimeException("Las medidas no pueden valer 0 o inferior");
-        }
-
-        // Se multiplica por constante para convertirlo en número entero y asi tener mayor precision
-        final double areaOne = Math.round(Transform.MILIMETROS3_TO_METROS3.convertir(
-                Transform.METROS_TO_MILIMETROS.convertir(medidas.getLargo()) *
-                        Transform.METROS_TO_MILIMETROS.convertir(medidas.getAncho()) *
-                        Transform.METROS_TO_MILIMETROS.convertir(medidas.getAlto())) * 100.0 / 100.0);
-        final double areaAll = areaOne * cantidad;
-        return new Areas(
-                null,
-                areaOne,
-                areaAll,
-                null
-        );
+    public Medidas3dDTO cambiar(double largo, double ancho, double alto) {
+        return new Medidas3dDTO(largo, ancho, alto);
     }
 
     @Override
-    public Areas calcularAreas(double largo, double ancho, double alto, int cantidad){
-        if(largo <= 0 || ancho <= 0|| alto <= 0 || cantidad <= 0){
-            throw new RuntimeException("Los valores no pueden ser cero ni negativo");
-        }
-        return calcularAreas(new Medidas3D(null, null, null, largo, ancho, alto), cantidad);
-    }
-
-    @Override
-    public Areas calcularAreas(double largo, double ancho, int cantidad){
-        if(largo <= 0 || ancho <= 0|| cantidad <= 0){
-            throw new RuntimeException("Los valores no pueden ser cero ni negativo");
-        }
-        return calcularAreas(new Medidas2D(null, null, null, largo, ancho), cantidad);
-    }
-
-    @Override
-    public Areas calcularAreas(Medidas2D medidas, int cantidad) {
-        if (medidas.getLargo() == null || medidas.getAncho() == null){
-            throw new RuntimeException("No puede haber medidas nulas");
-        }
-
-        if (medidas.getLargo() <= 0 || medidas.getAncho() <= 0){
-            throw new RuntimeException("Las medidas no pueden valer 0");
-        }
-
-        // Se multiplica por constante para convertirlo en número entero y asi tener mayor precision
-        double areaOne = Math.round(Transform.MILIMETROS2_TO_METROS2.convertir(
-                Transform.METROS_TO_MILIMETROS.convertir(medidas.getLargo()) *
-                        Transform.METROS_TO_MILIMETROS.convertir(medidas.getAncho())) * 100.0 / 100.0);
-        double areaAll = areaOne * cantidad;
-        return new Areas(
-                null,
-                areaOne,
-                areaAll,
-                null
-        );
+    public Medidas2dDTO cambiar(double largo, double ancho) {
+        return new Medidas2dDTO(largo, ancho);
     }
 }

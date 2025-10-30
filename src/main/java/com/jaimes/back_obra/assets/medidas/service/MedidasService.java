@@ -1,12 +1,10 @@
 package com.jaimes.back_obra.assets.medidas.service;
 
-import com.jaimes.back_obra.assets.areas.entity.Areas;
-import com.jaimes.back_obra.assets.medidas.entity.Medidas2D;
-import com.jaimes.back_obra.assets.medidas.entity.Medidas3D;
+import com.jaimes.back_obra.assets.medidas.dto.Medidas2dDTO;
+import com.jaimes.back_obra.assets.medidas.dto.Medidas3dDTO;
+
 
 public interface MedidasService {
-    Areas calcularAreas(Medidas3D medidas, int cantidad);
-    Areas calcularAreas(double largo, double ancho , double alto, int cantidad);
-    Areas calcularAreas(Medidas2D medidas, int cantidad);
-    Areas calcularAreas(double largo, double ancho, int cantidad);
+    Medidas3dDTO cambiar(double largo, double ancho, double alto);
+    Medidas2dDTO cambiar(double largo, double ancho);
 }
