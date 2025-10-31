@@ -18,37 +18,37 @@ public class MaterialImplement implements MaterialService {
     private final TablaService tablaService = new TablaImplement();
 
     private MorteroDTO morteroDTO(Areas areas, DosificacionMortero dMortero){
-        final double areaOne = Transform.METROS3_TO_MILIMETROS3.convertir(areas.getAreaOne());
-        final double areaAll = Transform.METROS3_TO_MILIMETROS3.convertir(areas.getAreaAll());
-        final double cemento = Transform.METROS3_TO_MILIMETROS3.convertir(dMortero.cemento());
-        final double arena = Transform.METROS3_TO_MILIMETROS3.convertir(dMortero.arena());
-        final double agua = Transform.METROS3_TO_MILIMETROS3.convertir(dMortero.agua());
+        final double areaOne = Transform.METROS_TO_MILIMETROS.convertir(areas.getAreaOne());
+        final double areaAll = Transform.METROS_TO_MILIMETROS.convertir(areas.getAreaAll());
+        final double cemento = Transform.METROS_TO_MILIMETROS.convertir(dMortero.cemento());
+        final double arena = Transform.METROS_TO_MILIMETROS.convertir(dMortero.arena());
+        final double agua = Transform.METROS_TO_MILIMETROS.convertir(dMortero.agua());
         return new MorteroDTO(
-                Transform.MILIMETROS3_TO_METROS3.convertir(areaOne * cemento),
-                Transform.MILIMETROS3_TO_METROS3.convertir(areaAll * cemento),
-                Transform.MILIMETROS3_TO_METROS3.convertir(areaOne * arena),
-                Transform.MILIMETROS3_TO_METROS3.convertir(areaAll * arena),
-                Transform.MILIMETROS3_TO_METROS3.convertir(areaOne * agua),
-                Transform.MILIMETROS3_TO_METROS3.convertir(areaAll * agua)
+                Math.round(Transform.MILIMETROS2_TO_METROS2.convertir(areaOne * cemento) * 100.0) /100.0,
+                Math.round(Transform.MILIMETROS2_TO_METROS2.convertir(areaAll * cemento) * 100.0) /100.0,
+                Math.round(Transform.MILIMETROS2_TO_METROS2.convertir(areaOne * arena) * 100.0) /100.0,
+                Math.round(Transform.MILIMETROS2_TO_METROS2.convertir(areaAll * arena) * 100.0) /100.0,
+                Math.round(Transform.MILIMETROS2_TO_METROS2.convertir(areaOne * agua) * 100.0) /100.0,
+                Math.round(Transform.MILIMETROS2_TO_METROS2.convertir(areaAll * agua) * 100.0) /100.0
         );
     }
 
     private ConcretoDTO concretoDTO(Areas areas, DosificacionConcreto dConcreto){
-        final double areaOne = Transform.METROS3_TO_MILIMETROS3.convertir(areas.getAreaOne());
-        final double areaAll = Transform.METROS3_TO_MILIMETROS3.convertir(areas.getAreaAll());
-        final double cemento = Transform.METROS3_TO_MILIMETROS3.convertir(dConcreto.cemento());
-        final double arena = Transform.METROS3_TO_MILIMETROS3.convertir(dConcreto.arena());
-        final double grava = Transform.METROS3_TO_MILIMETROS3.convertir(dConcreto.grava());
-        final double agua = Transform.METROS3_TO_MILIMETROS3.convertir(dConcreto.agua());
+        final double areaOne = Transform.METROS_TO_MILIMETROS.convertir(areas.getAreaOne());
+        final double areaAll = Transform.METROS_TO_MILIMETROS.convertir(areas.getAreaAll());
+        final double cemento = Transform.METROS_TO_MILIMETROS.convertir(dConcreto.cemento());
+        final double arena = Transform.METROS_TO_MILIMETROS.convertir(dConcreto.arena());
+        final double grava = Transform.METROS_TO_MILIMETROS.convertir(dConcreto.grava());
+        final double agua = Transform.METROS_TO_MILIMETROS.convertir(dConcreto.agua());
         return new ConcretoDTO(
-                Transform.MILIMETROS3_TO_METROS3.convertir(areaOne * cemento),
-                Transform.MILIMETROS3_TO_METROS3.convertir(areaAll * cemento),
-                Transform.MILIMETROS3_TO_METROS3.convertir(areaOne * arena),
-                Transform.MILIMETROS3_TO_METROS3.convertir(areaAll * arena),
-                Transform.MILIMETROS3_TO_METROS3.convertir(areaOne * grava),
-                Transform.MILIMETROS3_TO_METROS3.convertir(areaAll * grava),
-                Transform.MILIMETROS3_TO_METROS3.convertir(areaOne * agua),
-                Transform.MILIMETROS3_TO_METROS3.convertir(areaAll * agua)
+                Math.round(Transform.MILIMETROS2_TO_METROS2.convertir(areaOne * cemento) * 100.0) /100.0,
+                Math.round(Transform.MILIMETROS2_TO_METROS2.convertir(areaAll * cemento) * 100.0) /100.0,
+                Math.round(Transform.MILIMETROS2_TO_METROS2.convertir(areaOne * arena) * 100.0) /100.0,
+                Math.round(Transform.MILIMETROS2_TO_METROS2.convertir(areaAll * arena) * 100.0) /100.0,
+                Math.round(Transform.MILIMETROS2_TO_METROS2.convertir(areaOne * grava) * 100.0) /100.0,
+                Math.round(Transform.MILIMETROS2_TO_METROS2.convertir(areaAll * grava) * 100.0) /100.0,
+                Math.round(Transform.MILIMETROS2_TO_METROS2.convertir(areaOne * agua) * 100.0) /100.0,
+                Math.round(Transform.MILIMETROS2_TO_METROS2.convertir(areaAll * agua) * 100.0) /100.0
         );
     }
 
