@@ -8,7 +8,7 @@ import com.jaimes.back_obra.assets.materiales.dto.ValdosasDTO;
 import com.jaimes.back_obra.assets.materiales.entity.Material;
 
 public interface MaterialService {
-    MorteroDTO calcularMortero(Areas areas, String dosificacion);
-    ConcretoDTO calcularConcreto(Areas areas, String dosificacion);
-    ValdosasDTO calcularValdosa(Areas areas);
+    MorteroDTO calcularMortero(AreasDTO areas, String dosificacion);
+    ConcretoDTO calcularConcreto(AreasDTO areas, String dosificacion);
+    ValdosasDTO calcularValdosa(AreasDTO areas);
 }

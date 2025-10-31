@@ -2,7 +2,9 @@ package com.jaimes.back_obra.assets.medidas.entity;
 
 import com.jaimes.back_obra.assets.tipo.entity.Tipo;
 import jakarta.persistence.Basic;
+import jakarta.persistence.Entity;
 
+@Entity
 public class Medidas3D extends Medidas2D{
 
     @Basic

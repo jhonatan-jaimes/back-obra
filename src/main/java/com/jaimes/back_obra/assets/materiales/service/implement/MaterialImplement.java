@@ -1,6 +1,6 @@
 package com.jaimes.back_obra.assets.materiales.service.implement;
 
-import com.jaimes.back_obra.assets.areas.entity.Areas;
+import com.jaimes.back_obra.assets.areas.dto.AreasDTO;
 import com.jaimes.back_obra.assets.materiales.dto.ConcretoDTO;
 import com.jaimes.back_obra.assets.materiales.dto.MorteroDTO;
 import com.jaimes.back_obra.assets.materiales.dto.ValdosasDTO;
@@ -17,9 +17,9 @@ public class MaterialImplement implements MaterialService {
 
     private final TablaService tablaService = new TablaImplement();
 
-    private MorteroDTO morteroDTO(Areas areas, DosificacionMortero dMortero){
-        final double areaOne = Transform.METROS_TO_MILIMETROS.convertir(areas.getAreaOne());
-        final double areaAll = Transform.METROS_TO_MILIMETROS.convertir(areas.getAreaAll());
+    private MorteroDTO morteroDTO(AreasDTO areas, DosificacionMortero dMortero){
+        final double areaOne = Transform.METROS_TO_MILIMETROS.convertir(areas.areaOne());
+        final double areaAll = Transform.METROS_TO_MILIMETROS.convertir(areas.areaAll());
         final double cemento = Transform.METROS_TO_MILIMETROS.convertir(dMortero.cemento());
         final double arena = Transform.METROS_TO_MILIMETROS.convertir(dMortero.arena());
         final double agua = Transform.METROS_TO_MILIMETROS.convertir(dMortero.agua());
@@ -33,9 +33,9 @@ public class MaterialImplement implements MaterialService {
         );
     }
 
-    private ConcretoDTO concretoDTO(Areas areas, DosificacionConcreto dConcreto){
-        final double areaOne = Transform.METROS_TO_MILIMETROS.convertir(areas.getAreaOne());
-        final double areaAll = Transform.METROS_TO_MILIMETROS.convertir(areas.getAreaAll());
+    private ConcretoDTO concretoDTO(AreasDTO areas, DosificacionConcreto dConcreto){
+        final double areaOne = Transform.METROS_TO_MILIMETROS.convertir(areas.areaOne());
+        final double areaAll = Transform.METROS_TO_MILIMETROS.convertir(areas.areaAll());
         final double cemento = Transform.METROS_TO_MILIMETROS.convertir(dConcreto.cemento());
         final double arena = Transform.METROS_TO_MILIMETROS.convertir(dConcreto.arena());
         final double grava = Transform.METROS_TO_MILIMETROS.convertir(dConcreto.grava());
@@ -53,19 +53,19 @@ public class MaterialImplement implements MaterialService {
     }
 
     @Override
-    public MorteroDTO calcularMortero(Areas areas, String dosificacion) {
+    public MorteroDTO calcularMortero(AreasDTO areas, String dosificacion) {
         DosificacionMortero doMortero = tablaService.getDosiMortero(dosificacion);
         return morteroDTO(areas, doMortero);
     }
 
     @Override
-    public ConcretoDTO calcularConcreto(Areas areas, String dosificacion) {
+    public ConcretoDTO calcularConcreto(AreasDTO areas, String dosificacion) {
         DosificacionConcreto doConcreto = tablaService.getDosiConcreto(dosificacion);
         return concretoDTO(areas, doConcreto);
     }
 
     @Override
-    public ValdosasDTO calcularValdosa(Areas areas) {
+    public ValdosasDTO calcularValdosa(AreasDTO areas) {
         return null;
     }
 }

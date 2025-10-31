@@ -1,5 +1,6 @@
 package com.jaimes.back_obra.tabla;
 
+import com.jaimes.back_obra.assets.areas.dto.AreasDTO;
 import com.jaimes.back_obra.assets.areas.entity.Areas;
 import com.jaimes.back_obra.assets.materiales.dto.ConcretoDTO;
 import com.jaimes.back_obra.assets.materiales.dto.MorteroDTO;
@@ -15,7 +16,7 @@ public class MaterialTest {
         MaterialService materialService = new MaterialImplement();
 
         ConcretoDTO dConcreto = materialService.calcularConcreto(
-                new Areas(null, .32, 6.4, null), "1:2:2");
+                new AreasDTO(.32, 6.4), "1:2:2");
 
         Assertions.assertEquals(134.40, dConcreto.cementoOne());
         Assertions.assertEquals(2688.00, dConcreto.cementoAll());
@@ -32,7 +33,7 @@ public class MaterialTest {
         MaterialService materialService = new MaterialImplement();
 
         MorteroDTO dMortero = materialService.calcularMortero(
-                new Areas(null, .32, 6.4, null), "1:2");
+                new AreasDTO(.32, 6.4), "1:2");
 
         Assertions.assertEquals(163.2, dMortero.cementoOne());
         Assertions.assertEquals(3264.0, dMortero.cementoAll());

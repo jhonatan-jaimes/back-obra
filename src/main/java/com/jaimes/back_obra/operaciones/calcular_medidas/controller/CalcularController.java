@@ -1,7 +1,7 @@
 package com.jaimes.back_obra.operaciones.calcular_medidas.controller;
 
-import com.jaimes.back_obra.operaciones.calcular_medidas.dto.input.Calcular2DInDTO;
-import com.jaimes.back_obra.operaciones.calcular_medidas.dto.input.Calcular3DInDTO;
+import com.jaimes.back_obra.operaciones.calcular_medidas.dto.input.Calcular2dInDTO;
+import com.jaimes.back_obra.operaciones.calcular_medidas.dto.input.Calcular3dInDTO;
 import com.jaimes.back_obra.operaciones.calcular_medidas.service.CalcularService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,15 +22,13 @@ public class CalcularController {
         this.calcularService = calcularService;
     }
 
-    @PostMapping("/medidas-3d")
-    public ResponseEntity<?> calcularMedidas3d(@Valid @RequestBody
-                                               Calcular3DInDTO calcular3DInDTO){
-        return ResponseEntity.ok(calcularService.calcularTipo3d(calcular3DInDTO));
+    @PostMapping("/3d")
+    public ResponseEntity<?> calcularMedidas3d(@Valid @RequestBody Calcular3dInDTO calcular3DInDTO){
+        return ResponseEntity.ok(calcularService.calcular(calcular3DInDTO));
     }
 
-    @PostMapping("/medidas-2d")
-    public ResponseEntity<?> calcularMedidas2d(@Valid @RequestBody
-                                               Calcular2DInDTO calcular2DInDTO){
-        return ResponseEntity.ok(calcularService.calcularTipo2d(calcular2DInDTO));
+    @PostMapping("/2d")
+    public ResponseEntity<?> calcularMedidas2d(@Valid @RequestBody Calcular2dInDTO calcular2DInDTO){
+        return ResponseEntity.ok(calcularService.calcular(calcular2DInDTO));
     }
 }

@@ -5,10 +5,11 @@ import com.jaimes.back_obra.assets.tipo.entity.Tipo;
 import jakarta.persistence.*;
 
 @Entity
-public class Medidas {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class Medidas {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
 
     @Basic
