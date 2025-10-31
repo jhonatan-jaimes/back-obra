@@ -1,7 +1,7 @@
 package com.jaimes.back_obra.tabla;
 
-import com.jaimes.back_obra.operaciones.utilidad.tabla.DosificacionConcreto;
-import com.jaimes.back_obra.operaciones.utilidad.tabla.TableConcreto;
+import com.jaimes.back_obra.operaciones.utilidad.tabla.dosi.DosificacionConcreto;
+import com.jaimes.back_obra.operaciones.utilidad.tabla.dosi.TableConcreto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

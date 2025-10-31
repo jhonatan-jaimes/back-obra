@@ -1,4 +1,4 @@
-package com.jaimes.back_obra.operaciones.utilidad.tabla;
+package com.jaimes.back_obra.operaciones.utilidad.tabla.dosi;
 
 import java.util.HashMap;
 import java.util.Map;

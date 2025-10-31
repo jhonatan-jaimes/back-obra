@@ -1,7 +1,7 @@
 package com.jaimes.back_obra.tabla;
 
-import com.jaimes.back_obra.operaciones.utilidad.tabla.DosificacionMortero;
-import com.jaimes.back_obra.operaciones.utilidad.tabla.TablaMortero;
+import com.jaimes.back_obra.operaciones.utilidad.tabla.dosi.DosificacionMortero;
+import com.jaimes.back_obra.operaciones.utilidad.tabla.dosi.TablaMortero;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

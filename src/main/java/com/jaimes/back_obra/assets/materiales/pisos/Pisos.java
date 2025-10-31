@@ -11,9 +11,8 @@ public class Pisos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Basic
-    private Double areaBaldosa;
-    private Double allBaldosas;
+    @OneToOne(mappedBy = "piso", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Valdosas valdosas;
 
     @OneToOne
     @JoinColumn(name = "material_id")
@@ -23,10 +22,9 @@ public class Pisos {
     public Pisos() {
     }
 
-    public Pisos(Long id, Double areaBaldosa, Double allBaldosas, Material material) {
+    public Pisos(Long id, Valdosas valdosas, Material material) {
         this.id = id;
-        this.areaBaldosa = areaBaldosa;
-        this.allBaldosas = allBaldosas;
+        this.valdosas = valdosas;
         this.material = material;
     }
 
@@ -38,20 +36,12 @@ public class Pisos {
         this.id = id;
     }
 
-    public Double getAreaBaldosa() {
-        return areaBaldosa;
+    public Valdosas getValdosas() {
+        return valdosas;
     }
 
-    public void setAreaBaldosa(Double areaBaldosa) {
-        this.areaBaldosa = areaBaldosa;
-    }
-
-    public Double getAllBaldosas() {
-        return allBaldosas;
-    }
-
-    public void setAllBaldosas(Double allBaldosas) {
-        this.allBaldosas = allBaldosas;
+    public void setValdosas(Valdosas valdosas) {
+        this.valdosas = valdosas;
     }
 
     public Material getMaterial() {

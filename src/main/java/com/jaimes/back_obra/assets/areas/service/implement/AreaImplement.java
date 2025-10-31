@@ -7,7 +7,6 @@ import com.jaimes.back_obra.assets.medidas.dto.Medidas3dDTO;
 import com.jaimes.back_obra.assets.medidas.service.MedidasService;
 import com.jaimes.back_obra.assets.medidas.service.implement.MedidasImplement;
 import com.jaimes.back_obra.operaciones.utilidad.Transform;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
