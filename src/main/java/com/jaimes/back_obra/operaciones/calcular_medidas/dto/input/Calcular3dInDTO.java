@@ -10,11 +10,11 @@ public record Calcular3dInDTO(
         Double largo,
 
         @NotNull(message = "El ancho es obligatorio")
-        @DecimalMin(value = "0.001", message = "El largo debe ser mayor a 0 y positivo")
+        @DecimalMin(value = "0.001", message = "El ancho debe ser mayor a 0 y positivo")
         Double ancho,
 
         @NotNull(message = "El alto es obligatorio")
-        @DecimalMin(value = "0.001", message = "El largo debe ser mayor a 0 y positivo")
+        @DecimalMin(value = "0.001", message = "El alto debe ser mayor a 0 y positivo")
         Double alto,
 
         @NotNull(message = "La cantidad es obligatoria")

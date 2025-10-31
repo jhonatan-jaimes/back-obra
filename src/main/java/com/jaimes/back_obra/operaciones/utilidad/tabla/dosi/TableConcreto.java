@@ -1,7 +1,9 @@
 package com.jaimes.back_obra.operaciones.utilidad.tabla.dosi;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class TableConcreto {
 
@@ -46,15 +48,15 @@ public class TableConcreto {
     }
 
     public DosificacionConcreto getDosificacion(String clave){
-        for(Map.Entry<Clave, DosificacionConcreto> entry : dosificaciones.entrySet()){
-            if(entry.getKey().proporcion().equals(clave) ||
-                    entry.getKey().resistencia().equals(clave) ||
-                    entry.getKey().peso().equals(clave) ||
-                    entry.getKey().volumen().equals(clave)){
-                return entry.getValue();
-            }
-        }
-        throw new RuntimeException("La clave '" + clave + "' no se encuentra en la tabla de dosificación");
+
+        return dosificaciones.entrySet().stream()
+                .filter(entry -> entry.getKey().proporcion().equals(clave) ||
+                        entry.getKey().resistencia().equals(clave) ||
+                        entry.getKey().peso().equals(clave) ||
+                        entry.getKey().volumen().equals(clave))
+                .map(Map.Entry::getValue)
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("La clave '" + clave + "' no se encuentra en la tabla de dosificación"));
     }
 
 }

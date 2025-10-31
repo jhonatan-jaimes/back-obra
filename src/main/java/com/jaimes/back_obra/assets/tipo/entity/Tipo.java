@@ -6,6 +6,7 @@ import com.jaimes.back_obra.assets.areas.entity.Areas;
 import com.jaimes.back_obra.assets.materiales.entity.Material;
 import com.jaimes.back_obra.assets.elementos.entity.Elementos;
 
+import com.jaimes.back_obra.assets.medidas.entity.Medidas;
 import com.jaimes.back_obra.assets.medidas.entity.Medidas2D;
 import com.jaimes.back_obra.assets.medidas.entity.Medidas3D;
 import jakarta.persistence.*;
@@ -23,10 +24,7 @@ public class Tipo {
     private Integer cantidad;
 
     @OneToOne(mappedBy = "tipo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Medidas2D medidas2D;
-
-    @OneToOne(mappedBy = "tipo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Medidas3D medidas3D;
+    private Medidas medidas;
 
     @OneToOne(mappedBy = "tipo", cascade = CascadeType.ALL, orphanRemoval = true)
     private Areas areas;
@@ -42,12 +40,11 @@ public class Tipo {
     public Tipo() {
     }
 
-    public Tipo(Long id, String nameTipo, Integer cantidad, Medidas2D medidas2D, Medidas3D medidas3D, Areas areas, Material material, Elementos elemento) {
+    public Tipo(Long id, String nameTipo, Integer cantidad, Medidas medidas, Areas areas, Material material, Elementos elemento) {
         this.id = id;
         this.nameTipo = nameTipo;
         this.cantidad = cantidad;
-        this.medidas2D = medidas2D;
-        this.medidas3D = medidas3D;
+        this.medidas = medidas;
         this.areas = areas;
         this.material = material;
         this.elemento = elemento;
@@ -77,20 +74,12 @@ public class Tipo {
         this.cantidad = cantidad;
     }
 
-    public Medidas2D getMedidas2D() {
-        return medidas2D;
+    public Medidas getMedidas() {
+        return medidas;
     }
 
-    public void setMedidas2D(Medidas2D medidas2D) {
-        this.medidas2D = medidas2D;
-    }
-
-    public Medidas3D getMedidas3D() {
-        return medidas3D;
-    }
-
-    public void setMedidas3D(Medidas3D medidas3D) {
-        this.medidas3D = medidas3D;
+    public void setMedidas(Medidas medidas) {
+        this.medidas = medidas;
     }
 
     public Areas getAreas() {

@@ -70,7 +70,7 @@ public class AreaImplement implements AreaService {
 
         // Se multiplica por constante para convertirlo en número entero y asi tener mayor precision
         final double areaOne = Math.round(Transform.MILIMETROS2_TO_METROS2.convertir(areaMili) * 100.0) / 100.0;
-        final double areaAll = Math.round(Transform.MILIMETROS3_TO_METROS3.convertir(areaMili * cantidad)
+        final double areaAll = Math.round(Transform.MILIMETROS2_TO_METROS2.convertir(areaMili * cantidad)
                 * 100.0) / 100.0;
 
         return new AreasDTO(areaOne, areaAll);

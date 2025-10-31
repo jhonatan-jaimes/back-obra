@@ -27,14 +27,13 @@ public class TablaMortero {
     }
 
     public DosificacionMortero getDosificacion(String clave){
-        for(Map.Entry<Clave, DosificacionMortero> entry : dosificaciones.entrySet()){
-            if(entry.getKey().proporcion().equals(clave) ||
-                    entry.getKey().resistencia().equals(clave) ||
-                    entry.getKey().peso().equals(clave) ||
-                    entry.getKey().volumen().equals(clave)){
-                return entry.getValue();
-            }
-        }
-        throw new RuntimeException("La clave '" + clave + "' no se encuentra en la tabla de dosificación");
+        return dosificaciones.entrySet().stream()
+                .filter(entry -> entry.getKey().proporcion().equals(clave) ||
+                        entry.getKey().resistencia().equals(clave) ||
+                        entry.getKey().peso().equals(clave) ||
+                        entry.getKey().volumen().equals(clave))
+                .map(Map.Entry::getValue)
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("La clave '" + clave + "' no se encuentra en la tabla de dosificación"));
     }
 }
