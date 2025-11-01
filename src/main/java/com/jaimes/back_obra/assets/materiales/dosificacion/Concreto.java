@@ -13,7 +13,7 @@ public class Concreto extends Mortero{
     public Concreto() {
     }
 
-    public Concreto(Long id, String tipo, Double cemento, Double arena, Double agua, Dosificacion dosificacion, Double grava) {
+    public Concreto(Long id, String tipo, Double cemento, Double arena, Double agua, Double grava,Dosificacion dosificacion) {
         super(id, tipo, cemento, arena, agua, dosificacion);
         this.grava = grava;
     }

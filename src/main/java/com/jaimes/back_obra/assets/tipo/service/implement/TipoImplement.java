@@ -7,6 +7,7 @@ import com.jaimes.back_obra.assets.tipo.dto.output.TipoListOutDTO;
 import com.jaimes.back_obra.assets.tipo.entity.Tipo;
 import com.jaimes.back_obra.assets.tipo.repository.TipoRepository;
 import com.jaimes.back_obra.assets.tipo.service.TipoService;
+import com.jaimes.back_obra.assets.tipo.utilidad.DtoToTipo;
 import com.jaimes.back_obra.assets.tipo.utilidad.TipoOutDTO;
 import com.jaimes.back_obra.assets.tipo.utilidad.TipoToDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,7 +77,8 @@ class TipoImplement implements TipoService {
 
     @Override
     public MessageStatus saveTipo2d(Tipo2dConcretoInDTO tipo2DConcretoInDTO) {
-        return null;
+        tipoRepository.save(DtoToTipo.dtoToTipo(tipo2DConcretoInDTO));
+        return new MessageStatus("Guardado");
     }
 
     @Override
